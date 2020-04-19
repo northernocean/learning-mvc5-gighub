@@ -184,17 +184,17 @@
     <Compile Include="Migrations\202004181935050_InitialModel.Designer.cs">
       <DependentUpon>202004181935050_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004182002066_CreateGigTable.cs" />
-    <Compile Include="Migrations\202004182002066_CreateGigTable.Designer.cs">
-      <DependentUpon>202004182002066_CreateGigTable.cs</DependentUpon>
+    <Compile Include="Migrations\202004191553534_GigTable.cs" />
+    <Compile Include="Migrations\202004191553534_GigTable.designer.cs">
+      <DependentUpon>202004191553534_GigTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004182017214_OverrideConventionsForGigsandGenres.cs" />
-    <Compile Include="Migrations\202004182017214_OverrideConventionsForGigsandGenres.Designer.cs">
-      <DependentUpon>202004182017214_OverrideConventionsForGigsandGenres.cs</DependentUpon>
+    <Compile Include="Migrations\202004191554433_SeedGenres.cs" />
+    <Compile Include="Migrations\202004191554433_SeedGenres.designer.cs">
+      <DependentUpon>202004191554433_SeedGenres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004182116242_SeedGenres.cs" />
-    <Compile Include="Migrations\202004182116242_SeedGenres.Designer.cs">
-      <DependentUpon>202004182116242_SeedGenres.cs</DependentUpon>
+    <Compile Include="Migrations\202004191555335_SeedTestUsers.cs" />
+    <Compile Include="Migrations\202004191555335_SeedTestUsers.designer.cs">
+      <DependentUpon>202004191555335_SeedTestUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -380,14 +380,14 @@
     <EmbeddedResource Include="Migrations\202004181935050_InitialModel.resx">
       <DependentUpon>202004181935050_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004182002066_CreateGigTable.resx">
-      <DependentUpon>202004182002066_CreateGigTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004191553534_GigTable.resx">
+      <DependentUpon>202004191553534_GigTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004182017214_OverrideConventionsForGigsandGenres.resx">
-      <DependentUpon>202004182017214_OverrideConventionsForGigsandGenres.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004191554433_SeedGenres.resx">
+      <DependentUpon>202004191554433_SeedGenres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004182116242_SeedGenres.resx">
-      <DependentUpon>202004182116242_SeedGenres.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004191555335_SeedTestUsers.resx">
+      <DependentUpon>202004191555335_SeedTestUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

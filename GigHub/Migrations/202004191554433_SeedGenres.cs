@@ -1,9 +1,10 @@
-namespace GigHub.Migrations
+﻿namespace GigHub.Migrations
 {
     using System.Data.Entity.Migrations;
 
     public partial class SeedGenres : DbMigration
     {
+
         public override void Up()
         {
 
@@ -18,5 +19,6 @@ namespace GigHub.Migrations
         {
             Sql("delete from dbo.Genres where Id in (1,2,3,4);");
         }
+
     }
 }
