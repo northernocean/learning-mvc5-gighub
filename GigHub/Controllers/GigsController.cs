@@ -29,6 +29,7 @@ namespace GigHub.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(GigFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -41,7 +42,7 @@ namespace GigHub.Controllers
             var gig = new Gig
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = viewModel.GetDateTime(), 
+                DateTime = viewModel.GetDateTime(),
                 Genre = _context.Genres.Single(g => g.Id == viewModel.GenreId),
                 Venue = viewModel.Venue
             };
