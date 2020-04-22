@@ -20,6 +20,7 @@ namespace GigHub.ViewModels
         public string Time { get; set; }
 
         [Required]
+        [Display(Name = "Genre")]
         public int GenreId { get; set; }
 
         public IEnumerable<Genre> Genres { get; set; }
