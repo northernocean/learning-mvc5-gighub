@@ -31,6 +31,10 @@ nav .navbar {
     margin-bottom: 20px;
 }
 
+span.field-validation-error {
+    color: red;
+}
+
 
 /* Bootstrap 3 overrides - 
     I'm not actually implementing this because I'm using BS4 and this is BS3 customization. 
