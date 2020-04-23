@@ -27,20 +27,26 @@ span.field-validation-error {
     color: red;
 }
 
-nav .navbar {
-    margin-bottom: 20px;
-}
-
 span.field-validation-error {
     color: red;
 }
 
+/* Boostrap 4 overrides */
+nav .navbar {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+}
 
 /* Bootstrap 3 overrides - 
-    I'm not actually implementing this because I'm using BS4 and this is BS3 customization. 
-    Also styling is not really my interest at the moment so I'm not spending time styling the site.
-    This code (untested) is here as a reference for others who might be interested. It is 
-    borrowed from a similar project: https://github.com/maicolalencar/GigHub
+    I'm not using this CSS because I'm using BS4 and this is BS3 customization. 
+    Styling is not really my interest at the moment so I'm not spending time a lot of time 
+    styling the site. Instead I added some bootstrap theming from bootswatch.com (yeti theme) and
+    a few small changes. This CSS (untested) for BS3 is left here as a reference for others who might 
+    be interested. It is borrowed from a similar project: https://github.com/maicolalencar/GigHub
 
 .navbar-inverse {
     background-color: #f50606;
