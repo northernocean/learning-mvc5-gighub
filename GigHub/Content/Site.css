@@ -34,11 +34,11 @@ span.field-validation-error {
 /* Boostrap 4 overrides */
 nav .navbar {
     margin-bottom: 20px;
-    font-size: 1rem;
 }
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
 }
 
 /* Bootstrap 3 overrides - 

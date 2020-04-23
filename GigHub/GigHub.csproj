@@ -192,9 +192,13 @@
     <Compile Include="Migrations\202004191554433_SeedGenres.designer.cs">
       <DependentUpon>202004191554433_SeedGenres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004191555335_SeedTestUsers.cs" />
-    <Compile Include="Migrations\202004191555335_SeedTestUsers.designer.cs">
-      <DependentUpon>202004191555335_SeedTestUsers.cs</DependentUpon>
+    <Compile Include="Migrations\202004231207001_AddNameToApplicationUser.cs" />
+    <Compile Include="Migrations\202004231207001_AddNameToApplicationUser.designer.cs">
+      <DependentUpon>202004231207001_AddNameToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231211588_SeedTestUsers.cs" />
+    <Compile Include="Migrations\202004231211588_SeedTestUsers.designer.cs">
+      <DependentUpon>202004231211588_SeedTestUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -220,7 +224,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -384,8 +388,11 @@
     <EmbeddedResource Include="Migrations\202004191554433_SeedGenres.resx">
       <DependentUpon>202004191554433_SeedGenres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004191555335_SeedTestUsers.resx">
-      <DependentUpon>202004191555335_SeedTestUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004231207001_AddNameToApplicationUser.resx">
+      <DependentUpon>202004231207001_AddNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231211588_SeedTestUsers.resx">
+      <DependentUpon>202004231211588_SeedTestUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
