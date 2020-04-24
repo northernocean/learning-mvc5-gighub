@@ -41,6 +41,58 @@ nav .navbar {
     font-size: 1rem;
 }
 
+/* Page Specific Styles */
+
+.gh-home .gigs {
+    padding: 0;
+}
+
+.gh-home .gigs li {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.gh-home .gigs li .date {
+    background: red;
+    color: white;
+    text-align: center;
+    width: 60px;
+    border-radius: 8px;
+}
+
+.gh-home .gigs li .date > .month {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+
+}
+
+.gh-home .gigs li .date > .day {
+    background: #f3f3f3;
+    color: #333;
+    font-size: 20px;
+    padding: 2px 6px;
+
+}
+
+.gh-home .gigs li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    margin-top: 6px;
+}
+
+.gh-home .gigs li .details .artist {
+    font-weight: bold;
+}
+
+.gh-home .gigs li .details .genre {
+    font-size: 14px;
+}
+
 /* Bootstrap 3 overrides - 
     I'm not using this CSS because I'm using BS4 and this is BS3 customization. 
     Styling is not really my interest at the moment so I'm not spending time a lot of time 
