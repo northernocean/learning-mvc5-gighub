@@ -13,10 +13,38 @@
                 <div class="day">@gig.DateTime.ToString("d ")</div>
             </div>
             <div class="details">
-                <div class="artist">@gig.Artist.Name</div>
-                <div class="genre">@gig.Genre.Name</div>
+                <div class="artist">@gig.Artist.Name></div>
+                <span class="genre">@gig.Genre.Name</span>
+                <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">Attend</button>
              </div>
         </li>
     }
 </ul>
 </div>
+
+@section scripts
+{
+    
+    <script>
+        $(document).ready(function () {
+
+            $(".js-toggle-attendance").click(function (e) {
+                var button = e.target;
+                $.get({
+                    url: "/api/attendances/" + button.getAttribute("data-gig-id"),
+                    success: function () {
+                            $(button).removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("Attending");
+                    },
+                    error: function () {
+                        alert("An error occurred.");
+                    }
+                });
+            });
+        });
+
+    </script>
+
+    
+}

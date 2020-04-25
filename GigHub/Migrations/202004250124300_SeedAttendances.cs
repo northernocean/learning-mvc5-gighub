@@ -12,7 +12,7 @@
             //Add two Gigs for artist@gighub.com
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-07-15','Top Hat',2)");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-08-15','Rock Candy Mountain',2)");
-            Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-08-31','Ferry Stage',2)");
+            Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-08-31','Ferry Stage',3)");
 
             //Set user@gighub.com to attend two gigs
             Sql("insert into [dbo].[Attendances] ([GigId],[AttendeeId]) select top (2) Id, 'a7d12f08-ec6a-435a-b20d-9364e5b26b63' as AttendeeId from [dbo].[Gigs]");
@@ -20,6 +20,9 @@
 
         public override void Down()
         {
+            Sql("delete from [dbo].[Attendances]");
+            Sql("delete from [dbo].[Gigs]");
+            Sql("delete from [dbo].[AspNetUsers] where [Id] = N'a7d12f08-ec6a-435a-b20d-9364e5b26b63'");
         }
     }
 }

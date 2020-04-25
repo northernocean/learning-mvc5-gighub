@@ -87,10 +87,26 @@ nav .navbar {
 
 .gh-home .gigs li .details .artist {
     font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.gh-home .gigs li .details .artist span {
+    margin-left: 9px;
+    color: steelblue;
 }
 
 .gh-home .gigs li .details .genre {
     font-size: 14px;
+}
+
+.gh-home .gigs li .details button {
+    border-radius: 9px;
+    color: #3f3f3f;
+    float: right;
+}
+
+.gh-home .gigs li .details button.btn-secondary {
+    background-color: aliceblue;
 }
 
 /* Bootstrap 3 overrides - 
