@@ -200,7 +200,12 @@
     <Compile Include="Migrations\202004231211588_SeedTestUsers.designer.cs">
       <DependentUpon>202004231211588_SeedTestUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004250108252_AddAttendances.cs" />
+    <Compile Include="Migrations\202004250108252_AddAttendances.designer.cs">
+      <DependentUpon>202004250108252_AddAttendances.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -393,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004231211588_SeedTestUsers.resx">
       <DependentUpon>202004231211588_SeedTestUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004250108252_AddAttendances.resx">
+      <DependentUpon>202004250108252_AddAttendances.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
