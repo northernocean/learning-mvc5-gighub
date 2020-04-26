@@ -43,18 +43,23 @@ nav .navbar {
 
 /* Page Specific Styles */
 
-.gh-home .gigs {
-    padding: 0;
+.gh-index > h1 {
+    margin: 20px 0;
 }
 
-.gh-home .gigs li {
+.gh-index .gigs {
+    padding-left: 0;
+    
+}
+
+.gh-index .gigs li {
     position: relative;
     margin-top: 10px;
     margin-bottom: 30px;
     list-style: none;
 }
 
-.gh-home .gigs li .date {
+.gh-index .gigs li .date {
     background: red;
     color: white;
     text-align: center;
@@ -62,7 +67,7 @@ nav .navbar {
     border-radius: 8px;
 }
 
-.gh-home .gigs li .date > .month {
+.gh-index .gigs li .date > .month {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: bold;
@@ -70,7 +75,7 @@ nav .navbar {
 
 }
 
-.gh-home .gigs li .date > .day {
+.gh-index .gigs li .date > .day {
     background: #f3f3f3;
     color: #333;
     font-size: 20px;
@@ -78,34 +83,34 @@ nav .navbar {
 
 }
 
-.gh-home .gigs li .details {
+.gh-index .gigs li .details {
     position: absolute;
     top: 0;
     left: 70px;
     margin-top: 6px;
 }
 
-.gh-home .gigs li .details .artist {
+.gh-index .gigs li .details .artist {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.gh-home .gigs li .details .artist span {
+.gh-index .gigs li .details .artist span {
     margin-left: 9px;
     color: steelblue;
 }
 
-.gh-home .gigs li .details .genre {
+.gh-index .gigs li .details .genre {
     font-size: 14px;
 }
 
-.gh-home .gigs li .details button {
+.gh-index .gigs li .details button {
     border-radius: 9px;
     color: #3f3f3f;
     float: right;
 }
 
-.gh-home .gigs li .details button.btn-secondary {
+.gh-index .gigs li .details button.btn-secondary {
     background-color: aliceblue;
 }
 

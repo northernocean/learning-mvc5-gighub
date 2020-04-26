@@ -186,8 +186,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AttendancesController.cs" />
     <Compile Include="Controllers\Api\FollowersController.cs" />
+    <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="ViewModels\GigsViewModel.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -371,7 +373,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Gigs.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -406,6 +408,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Artists\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
