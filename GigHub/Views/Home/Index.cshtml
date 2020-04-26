@@ -13,7 +13,7 @@
                 <div class="day">@gig.DateTime.ToString("d ")</div>
             </div>
             <div class="details">
-                <div class="artist">@gig.Artist.Name></div>
+                <div class="artist">@gig.Artist.Name<span class="fa fa-star-o js-toggle-follow" data-artist-id="@gig.ArtistId"></span></div>
                 <span class="genre">@gig.Genre.Name</span>
                 <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">Attend</button>
              </div>
@@ -36,6 +36,24 @@
                             $(button).removeClass("btn-default")
                             .addClass("btn-info")
                             .text("Attending");
+                    },
+                    error: function () {
+                        alert("An error occurred.");
+                    }
+                });
+            });
+
+            $(".js-toggle-follow").click(function (e) {
+
+                console.log("starclick");
+                let el = e.target;
+                console.log(el);
+                $.get({
+                    url: "api/followers/" + el.getAttribute("data-artist-id"),
+                    success: function () {
+                        $(el)
+                            .removeClass("fa-star-o")
+                            .addClass("fa-star");
                     },
                     error: function () {
                         alert("An error occurred.");
