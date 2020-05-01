@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<GigHub.Models.Gig>
 @{
-    ViewBag.Title = "Mine";
+    ViewBag.Title = "My Upcoming Gigs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="gh-index">
+<div class="gigs-calendar">
 
     <h1>My Upcoming Gigs</h1>
 
@@ -20,7 +20,12 @@
                     <div class="artist">
                         @gig.Venue
                 </div>
-                <span class="genre">@gig.Genre.Name</span>
+                <span class="genre">
+                    @gig.Genre.Name
+                </span>
+                <div class="actions">
+                    <a href="@Url.Action("Edit", "Gigs", new { id = gig.Id })">Edit</a>
+                </div>
             </div>
         </li>
         }

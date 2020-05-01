@@ -43,23 +43,23 @@ nav .navbar {
 
 /* Page Specific Styles */
 
-.gh-index > h1 {
+.gigs-calendar > h1 {
     margin: 20px 0;
 }
 
-.gh-index .gigs {
+.gigs-calendar .gigs {
     padding-left: 0;
     
 }
 
-.gh-index .gigs li {
+.gigs-calendar .gigs li {
     position: relative;
     margin-top: 10px;
     margin-bottom: 30px;
     list-style: none;
 }
 
-.gh-index .gigs li .date {
+.gigs-calendar .gigs li .date {
     background: red;
     color: white;
     text-align: center;
@@ -67,7 +67,7 @@ nav .navbar {
     border-radius: 8px;
 }
 
-.gh-index .gigs li .date > .month {
+.gigs-calendar .gigs li .date > .month {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: bold;
@@ -75,7 +75,7 @@ nav .navbar {
 
 }
 
-.gh-index .gigs li .date > .day {
+.gigs-calendar .gigs li .date > .day {
     background: #f3f3f3;
     color: #333;
     font-size: 20px;
@@ -83,36 +83,47 @@ nav .navbar {
 
 }
 
-.gh-index .gigs li .details {
+.gigs-calendar .gigs li .details {
     position: absolute;
     top: 0;
     left: 70px;
     margin-top: 6px;
 }
 
-.gh-index .gigs li .details .artist {
+.gigs-calendar .gigs li .details .artist {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.gh-index .gigs li .details .artist span {
+.gigs-calendar .gigs li .details .artist span {
     margin-left: 9px;
     color: steelblue;
 }
 
-.gh-index .gigs li .details .genre {
+.gigs-calendar .gigs li .details .genre {
     font-size: 14px;
 }
 
-.gh-index .gigs li .details button {
+.gigs-calendar .gigs li .details button {
     border-radius: 9px;
     color: #3f3f3f;
     float: right;
 }
 
-.gh-index .gigs li .details button.btn-secondary {
+.gigs-calendar .gigs li .details button.btn-secondary {
     background-color: aliceblue;
 }
+
+.gigs-calendar .gigs li .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs-calendar .gigs li:hover .actions {
+    font-size: 15px;
+    display: block;
+}
+
 
 /* Bootstrap 3 overrides - 
     I'm not using this CSS because I'm using BS4 and this is BS3 customization. 
