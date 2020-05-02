@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace GigHub.Models
 {
@@ -11,6 +12,8 @@ namespace GigHub.Models
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Follower> Followers { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
 
         //Constructor
         public ApplicationDbContext()
@@ -26,16 +29,24 @@ namespace GigHub.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.Gig)
                 .WithMany()
                 .WillCascadeOnDelete(false);
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Follower>()
                 .HasRequired(a => a.Artist)
                 .WithMany()
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserNotification>()
+                .HasRequired(a => a.User)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
 
             //modelBuilder.Entity<ApplicationUser>()
