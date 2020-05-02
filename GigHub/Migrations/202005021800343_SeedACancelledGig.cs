@@ -2,16 +2,15 @@
 {
     using System.Data.Entity.Migrations;
 
-    public partial class AddIsCancelledToGig : DbMigration
+    public partial class SeedACancelledGig : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Gigs", "IsCancelled", c => c.Boolean(nullable: false));
+            Sql("update [dbo].[Gigs] set IsCancelled = 'True' where Venue = 'Market Street Cafe (Cancelled)';");
         }
 
         public override void Down()
         {
-            DropColumn("dbo.Gigs", "IsCancelled");
         }
     }
 }

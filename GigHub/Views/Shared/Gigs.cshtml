@@ -17,12 +17,16 @@
             </div>
             <div class="details">
                 <div class="artist">@gig.Artist.Name
+                    @if (gig.IsCancelled)
+                    {
+                        <span class="control-label label-warning">Cancelled</span>
+                    }
                     @if(Model.ShowActions){
                         <span class="fa fa-star-o js-toggle-follow" data-artist-id="@gig.ArtistId"></span>
                     }
                 </div>
                 <span class="genre">@gig.Genre.Name</span>
-                @if (Model.ShowActions)
+                @if (Model.ShowActions && !gig.IsCancelled)
                 {
                     <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">Attend</button>
                 }

@@ -193,6 +193,10 @@
     <Compile Include="Migrations\202005020055489_AddIsCancelledToGig.designer.cs">
       <DependentUpon>202005020055489_AddIsCancelledToGig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005021800343_SeedACancelledGig.cs" />
+    <Compile Include="Migrations\202005021800343_SeedACancelledGig.designer.cs">
+      <DependentUpon>202005021800343_SeedACancelledGig.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\GigsViewModel.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,6 +264,8 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -447,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005020055489_AddIsCancelledToGig.resx">
       <DependentUpon>202005020055489_AddIsCancelledToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021800343_SeedACancelledGig.resx">
+      <DependentUpon>202005021800343_SeedACancelledGig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
