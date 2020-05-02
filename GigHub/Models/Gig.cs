@@ -8,6 +8,8 @@ namespace GigHub.Models
 
         public int Id { get; set; }
 
+        public bool IsCancelled { get; set; }
+
         [Required]
         [StringLength(128)]
         public string ArtistId { get; set; }

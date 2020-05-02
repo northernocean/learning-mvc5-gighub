@@ -17,7 +17,7 @@
                     <div class="day">@gig.DateTime.ToString("d ")</div>
                 </div>
                 <div class="details">
-                    <div class="artist">
+                    <div class="venue">
                         @gig.Venue
                 </div>
                 <span class="genre">
@@ -25,6 +25,7 @@
                 </span>
                 <div class="actions">
                     <a href="@Url.Action("Edit", "Gigs", new { id = gig.Id })">Edit</a>
+                    <a href="#" class="js-cancel-gig" data-gig-id="@gig.Id">Cancel</a>
                 </div>
             </div>
         </li>
@@ -32,3 +33,30 @@
     </ul>
 
 </div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            $(".js-cancel-gig").click(function (e) {
+
+                if (confirm("Cancel this gig?")) {
+                    console.log("done");
+                    let link = $(e.target);
+                    console.log("/api/gigs/" + link.attr("data-gig-id"));
+                    $.ajax({
+                        url: "/api/gigs/" + link.attr("data-gig-id"),
+                        method: "DELETE"
+                    }).done(function () {
+                        link.closest("li").fadeOut(function () {
+                            $(this).remove()
+                        })
+                    })
+                    .fail(function () {
+                            alert("An error occurred");
+                    });
+                }
+            });
+        });
+    </script>    
+}

@@ -57,7 +57,7 @@ namespace GigHub.Controllers
         {
             var userId = User.Identity.GetUserId();
             var gigs = _context.Gigs
-                .Where(g => g.ArtistId == userId && g.DateTime > DateTime.Now)
+                .Where(g => g.ArtistId == userId && g.DateTime > DateTime.Now && !g.IsCancelled)
                 .Include(g => g.Genre)
                 .ToList();
 
@@ -98,7 +98,7 @@ namespace GigHub.Controllers
                     from g in _context.Gigs
                     join f in _context.Followers
                     on g.ArtistId equals f.ArtistId
-                    where f.UserId == userId && g.DateTime > dateCutoff
+                    where f.UserId == userId && g.DateTime > dateCutoff && !g.IsCancelled
                     select g;
 
             //var gigs2 =

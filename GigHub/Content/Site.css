@@ -90,7 +90,7 @@ nav .navbar {
     margin-top: 6px;
 }
 
-.gigs-calendar .gigs li .details .artist {
+.gigs-calendar .gigs li .details .artist,.venue {
     font-weight: bold;
     margin-bottom: 5px;
 }
