@@ -197,17 +197,9 @@
     <Compile Include="Migrations\202005021800343_SeedACancelledGig.designer.cs">
       <DependentUpon>202005021800343_SeedACancelledGig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005022026061_AddNotification.cs" />
-    <Compile Include="Migrations\202005022026061_AddNotification.designer.cs">
-      <DependentUpon>202005022026061_AddNotification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005022113277_VenueSetMaxLength.cs" />
-    <Compile Include="Migrations\202005022113277_VenueSetMaxLength.designer.cs">
-      <DependentUpon>202005022113277_VenueSetMaxLength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005022118519_NullableColumnsInNotificationType.cs" />
-    <Compile Include="Migrations\202005022118519_NullableColumnsInNotificationType.designer.cs">
-      <DependentUpon>202005022118519_NullableColumnsInNotificationType.cs</DependentUpon>
+    <Compile Include="Migrations\202005030145231_AddNotification.cs" />
+    <Compile Include="Migrations\202005030145231_AddNotification.designer.cs">
+      <DependentUpon>202005030145231_AddNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
@@ -472,14 +464,8 @@
     <EmbeddedResource Include="Migrations\202005021800343_SeedACancelledGig.resx">
       <DependentUpon>202005021800343_SeedACancelledGig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005022026061_AddNotification.resx">
-      <DependentUpon>202005022026061_AddNotification.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005022113277_VenueSetMaxLength.resx">
-      <DependentUpon>202005022113277_VenueSetMaxLength.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005022118519_NullableColumnsInNotificationType.resx">
-      <DependentUpon>202005022118519_NullableColumnsInNotificationType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005030145231_AddNotification.resx">
+      <DependentUpon>202005030145231_AddNotification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

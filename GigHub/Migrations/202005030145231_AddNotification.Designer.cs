@@ -7,13 +7,13 @@ namespace GigHub.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class NullableColumnsInNotificationType : IMigrationMetadata
+    public sealed partial class AddNotification : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NullableColumnsInNotificationType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNotification));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005022118519_NullableColumnsInNotificationType"; }
+            get { return "202005030145231_AddNotification"; }
         }
         
         string IMigrationMetadata.Source
