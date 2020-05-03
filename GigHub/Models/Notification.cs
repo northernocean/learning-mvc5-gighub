@@ -23,27 +23,27 @@ namespace GigHub.Models
         public int Id { get; private set; }
 
         [Required]
-        public int GigId { get; private set; }
+        public int GigId { get; }
 
         [Required]
-        public NotificationType Type { get; private set; }
+        public NotificationType Type { get; }
 
         [Required]
-        public DateTime DateTime { get; private set; }
+        public DateTime DateTime { get; }
 
         [StringLength(100)]
-        public string Venue { get; private set; }
+        public string Venue { get; }
 
         [Required]
-        public DateTime OriginalDateTime { get; private set; }
+        public DateTime OriginalDateTime { get; }
 
         [StringLength(100)]
-        public string OriginalVenue { get; private set; }
+        public string OriginalVenue { get; }
 
-        public DateTime NotificationDateCreated { get; private set; }
+        public DateTime NotificationDateCreated { get; }
 
         // Navigation Property
-        public Gig Gig { get; private set; }
+        public Gig Gig { get; }
 
     }
 }

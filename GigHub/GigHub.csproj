@@ -201,6 +201,14 @@
     <Compile Include="Migrations\202005030145231_AddNotification.designer.cs">
       <DependentUpon>202005030145231_AddNotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005031508424_Notifications_ROProps.cs" />
+    <Compile Include="Migrations\202005031508424_Notifications_ROProps.designer.cs">
+      <DependentUpon>202005031508424_Notifications_ROProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005031534286_UserNotificationRefactoring.cs" />
+    <Compile Include="Migrations\202005031534286_UserNotificationRefactoring.designer.cs">
+      <DependentUpon>202005031534286_UserNotificationRefactoring.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
     <Compile Include="Models\UserNotification.cs" />
@@ -466,6 +474,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005030145231_AddNotification.resx">
       <DependentUpon>202005030145231_AddNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005031508424_Notifications_ROProps.resx">
+      <DependentUpon>202005031508424_Notifications_ROProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005031534286_UserNotificationRefactoring.resx">
+      <DependentUpon>202005031534286_UserNotificationRefactoring.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
