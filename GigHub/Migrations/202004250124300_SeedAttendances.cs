@@ -17,8 +17,8 @@
             // Add a canceled gig
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-15','Market Street Cafe (Cancelled)',3)");
 
-            //Set user@gighub.com to attend two gigs
-            Sql("insert into [dbo].[Attendances] ([GigId],[AttendeeId]) select top (2) Id, 'a7d12f08-ec6a-435a-b20d-9364e5b26b63' as AttendeeId from [dbo].[Gigs]");
+            //Set user@gighub.com to attend Pops gigs
+            Sql("insert into [dbo].[Attendances] ([GigId],[AttendeeId]) select Id, 'a7d12f08-ec6a-435a-b20d-9364e5b26b63' as AttendeeId from [dbo].[Gigs] where ArtistId = N'1def91ce-9d0f-401b-ae6e-98b120bf6994'");
         }
 
         public override void Down()

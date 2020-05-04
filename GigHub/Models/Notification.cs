@@ -10,12 +10,12 @@ namespace GigHub.Models
         {
         }
 
-        public Notification(Gig gig, NotificationType notificationType, DateTime originalDateTime, string originalVenue)
+        public Notification(Gig gig, NotificationType notificationType)
         {
             Gig = gig ?? throw new ArgumentNullException("gig");
             Type = notificationType;
-            OriginalDateTime = originalDateTime;
-            OriginalVenue = originalVenue;
+            OriginalDateTime = gig.DateTime;
+            OriginalVenue = gig.Venue;
             NotificationDateCreated = System.DateTime.Now;
         }
 
@@ -23,27 +23,26 @@ namespace GigHub.Models
         public int Id { get; private set; }
 
         [Required]
-        public int GigId { get; }
+        public int GigId { get; private set; }
 
         [Required]
-        public NotificationType Type { get; }
+        public NotificationType Type { get; private set; }
 
-        [Required]
-        public DateTime DateTime { get; }
+        public DateTime? DateTime { get; private set; }
 
         [StringLength(100)]
-        public string Venue { get; }
+        public string Venue { get; private set; }
 
         [Required]
-        public DateTime OriginalDateTime { get; }
+        public DateTime OriginalDateTime { get; private set; }
 
         [StringLength(100)]
-        public string OriginalVenue { get; }
+        public string OriginalVenue { get; private set; }
 
-        public DateTime NotificationDateCreated { get; }
+        public DateTime NotificationDateCreated { get; private set; }
 
         // Navigation Property
-        public Gig Gig { get; }
+        public Gig Gig { get; private set; }
 
     }
 }

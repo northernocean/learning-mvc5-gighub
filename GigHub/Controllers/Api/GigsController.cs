@@ -22,6 +22,8 @@ namespace GigHub.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
             var gig = _context.Gigs
+                // .Include((g => g.Attendances.Include(a => a.Attendee)) <== doesn't work but conceptually it is what we want here
+                // .Include((g => g.Attendances.Select(a => a.Attendee)) <== okay
                 .Include(g => g.Attendances.Select(a => a.Attendee))
                 .Single(g => g.Id == id && g.ArtistId == userId);
 
@@ -29,7 +31,7 @@ namespace GigHub.Controllers.Api
                 return NotFound();
 
             gig.Cancel();
-            
+
             _context.SaveChanges();
 
             return Ok();

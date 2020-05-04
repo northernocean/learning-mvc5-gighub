@@ -36,19 +36,19 @@ namespace GigHub.Models
 
         public ApplicationUser Artist { get; set; }
 
+        public virtual ICollection<Attendance> Attendances { get; }
+        
         public void Cancel()
         {
             IsCancelled = true;
 
             // Create a Notification
             Notification notification = new Notification(
-                this, NotificationType.GigCancelled, DateTime, Venue);
+                this, NotificationType.GigCancelled);
 
             foreach (var attendee in Attendances.Select(a => a.Attendee))
                 attendee.Notify(notification);
         }
-
-        public ICollection<Attendance> Attendances { get; }
 
     }
 }

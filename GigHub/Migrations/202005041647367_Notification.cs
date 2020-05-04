@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Notifications : DbMigration
+    public partial class Notification : DbMigration
     {
         public override void Up()
         {
@@ -26,8 +26,17 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        GigId = c.Int(nullable: false),
+                        Type = c.Int(nullable: false),
+                        DateTime = c.DateTime(),
+                        Venue = c.String(maxLength: 100),
+                        OriginalDateTime = c.DateTime(nullable: false),
+                        OriginalVenue = c.String(maxLength: 100),
+                        NotificationDateCreated = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Gigs", t => t.GigId, cascadeDelete: true)
+                .Index(t => t.GigId);
             
             AddColumn("dbo.Gigs", "IsCancelled", c => c.Boolean(nullable: false));
             AlterColumn("dbo.Gigs", "Venue", c => c.String(nullable: false, maxLength: 100));
@@ -37,6 +46,8 @@
         {
             DropForeignKey("dbo.UserNotifications", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.UserNotifications", "NotificationId", "dbo.Notifications");
+            DropForeignKey("dbo.Notifications", "GigId", "dbo.Gigs");
+            DropIndex("dbo.Notifications", new[] { "GigId" });
             DropIndex("dbo.UserNotifications", new[] { "UserId" });
             DropIndex("dbo.UserNotifications", new[] { "NotificationId" });
             AlterColumn("dbo.Gigs", "Venue", c => c.String(nullable: false));

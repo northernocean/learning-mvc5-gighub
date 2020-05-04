@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace GigHub.Models
 {
@@ -30,11 +29,9 @@ namespace GigHub.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.Gig)
-                .WithMany(g => g.Attendances)
+                .WithMany(a => a.Attendances)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Follower>()
