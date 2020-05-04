@@ -11,6 +11,7 @@
 
         public override void Down()
         {
+            Sql("update [dbo].[Gigs] set IsCancelled = 'False' where Venue = 'Market Street Cafe (Cancelled)';");
         }
     }
 }
