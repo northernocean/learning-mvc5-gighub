@@ -6,10 +6,6 @@ namespace GigHub.Models
     public class Follower
     {
 
-        public ApplicationUser User { get; set; }
-
-        public ApplicationUser Artist { get; set; }
-
         [Key]
         [StringLength(128)]
         [Column(Order = 1)]
@@ -19,5 +15,9 @@ namespace GigHub.Models
         [StringLength(128)]
         [Column(Order = 2)]
         public string UserId { get; set; }
+
+        public ApplicationUser User { get; set; }
+        public ApplicationUser Artist { get; set; }
+
     }
 }
