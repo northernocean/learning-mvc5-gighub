@@ -189,13 +189,13 @@
     <Compile Include="Controllers\Api\GigsController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Migrations\202005041647367_Notification.cs" />
-    <Compile Include="Migrations\202005041647367_Notification.designer.cs">
-      <DependentUpon>202005041647367_Notification.cs</DependentUpon>
+    <Compile Include="Migrations\202005050014508_Notification.cs" />
+    <Compile Include="Migrations\202005050014508_Notification.designer.cs">
+      <DependentUpon>202005050014508_Notification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005041648259_SeedACancelledGig.cs" />
-    <Compile Include="Migrations\202005041648259_SeedACancelledGig.designer.cs">
-      <DependentUpon>202005041648259_SeedACancelledGig.cs</DependentUpon>
+    <Compile Include="Migrations\202005050019233_SeedACancelledGig.cs" />
+    <Compile Include="Migrations\202005050019233_SeedACancelledGig.designer.cs">
+      <DependentUpon>202005050019233_SeedACancelledGig.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
@@ -454,11 +454,11 @@
     <EmbeddedResource Include="Migrations\202004261312383_AddFollowers.resx">
       <DependentUpon>202004261312383_AddFollowers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005041647367_Notification.resx">
-      <DependentUpon>202005041647367_Notification.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005050014508_Notification.resx">
+      <DependentUpon>202005050014508_Notification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005041648259_SeedACancelledGig.resx">
-      <DependentUpon>202005041648259_SeedACancelledGig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005050019233_SeedACancelledGig.resx">
+      <DependentUpon>202005050019233_SeedACancelledGig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

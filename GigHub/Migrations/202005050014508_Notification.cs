@@ -30,7 +30,7 @@
                         Type = c.Int(nullable: false),
                         DateTime = c.DateTime(),
                         Venue = c.String(maxLength: 100),
-                        OriginalDateTime = c.DateTime(nullable: false),
+                        OriginalDateTime = c.DateTime(),
                         OriginalVenue = c.String(maxLength: 100),
                         NotificationDateCreated = c.DateTime(nullable: false),
                     })
