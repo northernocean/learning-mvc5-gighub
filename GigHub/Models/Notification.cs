@@ -5,23 +5,23 @@ namespace GigHub.Models
 {
     public class Notification
     {
-        
+
         // Constructors
 
         protected Notification() { }
 
-        public Notification(Gig gig, NotificationType notificationType) 
+        private Notification(Gig gig, NotificationType notificationType)
             : this(gig, notificationType, null, null) { }
 
-        public Notification(Gig gig, NotificationType notificationType, DateTime? originalDateTime, string originalVenue)
+        private Notification(Gig gig, NotificationType notificationType, DateTime? originalDateTime, string originalVenue)
         {
             Gig = gig ?? throw new ArgumentNullException("gig");
             Type = notificationType;
-            
+
             DateTime = gig.DateTime;
             Venue = gig.Venue;
-            
-            if(notificationType == NotificationType.GigUpdated)
+
+            if (notificationType == NotificationType.GigUpdated)
             {
                 OriginalDateTime = originalDateTime;
                 OriginalVenue = originalVenue;
@@ -54,7 +54,25 @@ namespace GigHub.Models
         public DateTime NotificationDateCreated { get; private set; }
 
         // Navigation Properties
+
         public Gig Gig { get; private set; }
+
+        //Static factory methods
+
+        public static Notification NewGigUpdatedNotification(Gig gig, DateTime originalDateTime, string originalVenue)
+        {
+            return new Notification(gig, NotificationType.GigUpdated, originalDateTime, originalVenue);
+        }
+
+        public static Notification NewGigCancelledNotification(Gig gig)
+        {
+            return new Notification(gig, NotificationType.GigCancelled);
+        }
+
+        public static Notification NewGigCreatedNotification(Gig gig)
+        {
+            return new Notification(gig, NotificationType.GigCreated);
+        }
 
     }
 }
