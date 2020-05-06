@@ -187,8 +187,14 @@
     <Compile Include="Controllers\Api\AttendancesController.cs" />
     <Compile Include="Controllers\Api\FollowersController.cs" />
     <Compile Include="Controllers\Api\GigsController.cs" />
+    <Compile Include="Dtos\ArtistDto.cs" />
+    <Compile Include="Dtos\GenreDto.cs" />
+    <Compile Include="Dtos\GigDto.cs" />
+    <Compile Include="Dtos\NotificationDto.cs" />
+    <Compile Include="Controllers\Api\NotificationsController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyTestsController.cs" />
     <Compile Include="Migrations\202005050014508_Notification.cs" />
     <Compile Include="Migrations\202005050014508_Notification.designer.cs">
       <DependentUpon>202005050014508_Notification.cs</DependentUpon>
@@ -196,6 +202,10 @@
     <Compile Include="Migrations\202005050019233_SeedACancelledGig.cs" />
     <Compile Include="Migrations\202005050019233_SeedACancelledGig.designer.cs">
       <DependentUpon>202005050019233_SeedACancelledGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005052001047_SeedANotification.cs" />
+    <Compile Include="Migrations\202005052001047_SeedANotification.designer.cs">
+      <DependentUpon>202005052001047_SeedANotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
@@ -419,6 +429,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Gigs\Mine.cshtml" />
+    <Content Include="Views\MyTests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -459,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005050019233_SeedACancelledGig.resx">
       <DependentUpon>202005050019233_SeedACancelledGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005052001047_SeedANotification.resx">
+      <DependentUpon>202005052001047_SeedANotification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

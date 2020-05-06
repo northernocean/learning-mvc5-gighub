@@ -3,7 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+## Custom
 Pluralsight/
+MyTestsController.cs
+Gighub/Views/MyTests/
 
 # User-specific files
 *.rsuser
