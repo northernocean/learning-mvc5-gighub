@@ -11,6 +11,8 @@
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-07-15 19:30','Top Hat',2);");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-08-15 19:30','Rock Candy Mountain',2);");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'fd7e6cb5-a12e-499f-a050-607567f3c8b8','2022-08-31 20:00','Ferry Stage',3);");
+            Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-05 20:00','The Vineyard',4);");
+            Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-06 20:00','Mojo',4);");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-09 20:00','JJs',4);");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-13 13:00','Black River Music Festival',4);");
 

@@ -1,4 +1,5 @@
-﻿using GigHub.Models;
+﻿using AutoMapper;
+using GigHub.Models;
 using GigHub.Models.Dtos;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
@@ -32,20 +33,27 @@ namespace GigHub.Controllers.Api
                 .Include(n => n.Gig.Genre)
                 .ToList();
 
+            Mapper.CreateMap<ApplicationUser, ArtistDto>();
+            Mapper.CreateMap<Genre, GenreDto>();
+            Mapper.CreateMap<Notification, NotificationDto>();
+
             var notifications = notificationsInDb.Select(
-                n => new NotificationDto
-                {
-                    DateTime = n.DateTime,
-                    GigId = n.GigId,
-                    Venue = n.Venue,
-                    OriginalVenue = n.OriginalVenue,
-                    OriginalDateTime = n.OriginalDateTime,
-                    Type = n.Type,
-                    Artist = new ArtistDto { Id = n.Gig.Artist.Id, Name = n.Gig.Artist.Name },
-                    Genre = new GenreDto { Id = n.Gig.GenreId, Name = n.Gig.Genre.Name }
-                });
+                Mapper.Map<Notification, NotificationDto>);
 
             return notifications;
+
+            //var notifications = notificationsInDb.Select(
+            //    n => new NotificationDto
+            //    {
+            //        DateTime = n.DateTime,
+            //        GigId = n.GigId,
+            //        Venue = n.Venue,
+            //        OriginalVenue = n.OriginalVenue,
+            //        OriginalDateTime = n.OriginalDateTime,
+            //        Type = n.Type,
+            //        Artist = new ArtistDto { Id = n.Gig.Artist.Id, Name = n.Gig.Artist.Name },
+            //        Genre = new GenreDto { Id = n.Gig.GenreId, Name = n.Gig.Genre.Name }
+            //    });
 
             //IEnumerable<NotificationDto> result = new List<NotificationDto>();
 
