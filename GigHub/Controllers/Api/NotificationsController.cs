@@ -33,10 +33,6 @@ namespace GigHub.Controllers.Api
                 .Include(n => n.Gig.Genre)
                 .ToList();
 
-            Mapper.CreateMap<ApplicationUser, ArtistDto>();
-            Mapper.CreateMap<Genre, GenreDto>();
-            Mapper.CreateMap<Notification, NotificationDto>();
-
             var notifications = notificationsInDb.Select(
                 Mapper.Map<Notification, NotificationDto>);
 
