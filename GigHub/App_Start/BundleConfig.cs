@@ -20,11 +20,12 @@ namespace GigHub
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/bootbox.js"));
+                      "~/Scripts/bootbox.js",
+                      "~/Scripts/fa-all.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-yeti.css",
-                      "~/Content/font-awesome.css",
+                      "~/Content/fa-all.css",
                       "~/Content/site.css"));
         }
     }

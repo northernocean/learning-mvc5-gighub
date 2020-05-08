@@ -2,27 +2,29 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+i
 <div class="gigs-calendar">
 
-<h1>@Model.Heading</h1>
+    <h1>@Model.Heading</h1>
 
-<ul class="gigs">
-    @foreach(var gig in Model.upcomingGigs)
-    {
-        <li>
-            <div class="date">
-                <div class="month">@gig.DateTime.ToString("MMM")</div>
-                <div class="day">@gig.DateTime.ToString("d ")</div>
-            </div>
-            <div class="details">
-                <div class="artist">@gig.Artist.Name
+    <ul class="gigs">
+        @foreach (var gig in Model.upcomingGigs)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">@gig.DateTime.ToString("MMM")</div>
+                    <div class="day">@gig.DateTime.ToString("d ")</div>
+                </div>
+                <div class="details">
+                    <div class="artist">
+                        @gig.Artist.Name
+                    @if (Model.ShowActions)
+                    {
+                        <span class="far fa-star js-toggle-follow" data-artist-id="@gig.ArtistId"></span>
+                    }
                     @if (gig.IsCancelled)
                     {
                         <span class="control-label label-warning">Cancelled</span>
-                    }
-                    @if(Model.ShowActions){
-                        <span class="fa fa-star-o js-toggle-follow" data-artist-id="@gig.ArtistId"></span>
                     }
                 </div>
                 <span class="genre">@gig.Genre.Name</span>
@@ -30,15 +32,15 @@
                 {
                     <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">Attend</button>
                 }
-             </div>
+            </div>
         </li>
     }
-</ul>
+    </ul>
 </div>
 
 @section scripts
 {
-    
+
     <script>
         $(document).ready(function () {
 
@@ -47,7 +49,7 @@
                 $.get({
                     url: "/api/attendances/" + button.getAttribute("data-gig-id"),
                     success: function () {
-                            $(button).removeClass("btn-default")
+                        $(button).removeClass("btn-default")
                             .addClass("btn-info")
                             .text("Attending");
                     },
@@ -66,8 +68,8 @@
                     url: "api/followers/" + el.getAttribute("data-artist-id"),
                     success: function () {
                         $(el)
-                            .removeClass("fa-star-o")
-                            .addClass("fa-star");
+                            .removeClass("far")
+                            .addClass("fas");
                     },
                     error: function () {
                         alert("An error occurred.");
@@ -78,5 +80,5 @@
 
     </script>
 
-    
+
 }

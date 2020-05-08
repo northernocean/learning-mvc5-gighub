@@ -5,6 +5,7 @@
     {
         @Html.AntiForgeryToken()
         <ul class="navbar-nav">
+            <li><a href="#"><i class="fa-bell"></i></a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @User.Identity.GetUserName()
