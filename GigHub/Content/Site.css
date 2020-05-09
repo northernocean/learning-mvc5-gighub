@@ -41,6 +41,17 @@ nav .navbar {
     font-size: 1rem;
 }
 
+li.notifications .fa-bell {
+    height: 100%;
+    color: #80dfff; /* #005c7a 004d66 00394d */
+}
+
+li.notifications .badge {
+    position: absolute;
+    color: #80dfff;
+    padding: 0;
+}
+
 /* Page Specific Styles */
 
 .gigs-calendar > h1 {
@@ -49,7 +60,6 @@ nav .navbar {
 
 .gigs-calendar .gigs {
     padding-left: 0;
-    
 }
 
 .gigs-calendar .gigs li {
@@ -72,7 +82,6 @@ nav .navbar {
     font-size: 14px;
     font-weight: bold;
     padding: 2px 6px;
-
 }
 
 .gigs-calendar .gigs li .date > .day {
@@ -80,7 +89,6 @@ nav .navbar {
     color: #333;
     font-size: 20px;
     padding: 2px 6px;
-
 }
 
 .gigs-calendar .gigs li .details {
@@ -123,12 +131,6 @@ nav .navbar {
     font-size: 15px;
     display: block;
 }
-
-#logoutForm .fa-bell {
-    height: 100%;
-    color: #80dfff; /* #005c7a 004d66 00394d */
-}
-
 
 /* Bootstrap 3 overrides - 
     I'm not using this CSS because I'm using BS4 and this is BS3 customization. 

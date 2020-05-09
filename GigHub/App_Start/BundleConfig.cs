@@ -26,7 +26,8 @@ namespace GigHub
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-yeti.css",
                       "~/Content/fa-all.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/animate.css"));
         }
     }
 }

@@ -5,8 +5,9 @@
     {
         @Html.AntiForgeryToken()
         <ul class="navbar-nav">
-            <li><a href="#">
-                <i class="fas fa-2x fa-bell"></i>
+            <li class="notifications"><a href="#">
+                <i class="fas fa-2x fa-bell hide"></i>
+                <span class="badge js-notifications-count"></span>
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -33,3 +34,4 @@ else
         </ul>
     </form>
 }
+
