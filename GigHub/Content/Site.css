@@ -124,6 +124,11 @@ nav .navbar {
     display: block;
 }
 
+#logoutForm .fa-bell {
+    height: 100%;
+    color: #80dfff; /* #005c7a 004d66 00394d */
+}
+
 
 /* Bootstrap 3 overrides - 
     I'm not using this CSS because I'm using BS4 and this is BS3 customization. 
