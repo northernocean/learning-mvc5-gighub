@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -18,10 +17,12 @@ namespace GigHub.Models
         public string Name { get; set; }
 
         public ICollection<UserNotification> UserNotifications { get; set; }
+        public ICollection<Follower> Followers { get; set; }
 
         public ApplicationUser()
         {
             UserNotifications = new Collection<UserNotification>();
+            Followers = new Collection<Follower>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

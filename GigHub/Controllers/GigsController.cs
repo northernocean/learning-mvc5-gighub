@@ -140,7 +140,7 @@ namespace GigHub.Controllers
                 Genre = _context.Genres.Single(g => g.Id == viewModel.GenreId),
                 Venue = viewModel.Venue
             };
-            _context.Gigs.Add(gig);
+            gig.Create(_context);
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");

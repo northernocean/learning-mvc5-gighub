@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 
 namespace GigHub.Models
@@ -37,6 +38,18 @@ namespace GigHub.Models
         public ApplicationUser Artist { get; set; }
 
         public virtual ICollection<Attendance> Attendances { get; }
+
+        public void Create(ApplicationDbContext context)
+        {
+            context.Gigs.Add(this);
+            Notification notification = Notification.NewGigCreatedNotification(this);
+            foreach (var follower in context.Followers
+                        .Include(u => u.User)
+                        .Where(a => a.ArtistId == ArtistId)
+                        .ToList()
+                    )
+                follower.User.Notify(notification);
+        }
 
         public void Cancel()
         {
