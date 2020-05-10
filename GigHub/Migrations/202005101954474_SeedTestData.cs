@@ -24,7 +24,9 @@
             INSERT INTO [dbo].[Notifications] 
             ([Id], [GigId], [Type], [DateTime], [Venue], [OriginalDateTime], [OriginalVenue], [NotificationDateCreated]) 
             VALUES (2, 8, 2, N'2022-09-15 15:00:00', N'Heart Magic', N'2022-09-14 13:00:00', N'Heart Magic', N'2020-05-10 13:53:36');
-
+            INSERT INTO [dbo].[Notifications] 
+            ([Id], [GigId], [Type], [DateTime], [Venue], [OriginalDateTime], [OriginalVenue], [NotificationDateCreated]) 
+            VALUES (3, 9, 3, N'2022-09-18 19:00:00', N'Playbook', null, null, N'2020-05-10 13:55:36');
             SET IDENTITY_INSERT[dbo].[Notifications] OFF;");
 
             Sql(@"
@@ -32,6 +34,8 @@
             VALUES (1, N'a7d12f08-ec6a-435a-b20d-9364e5b26b63', 0)
             INSERT INTO [dbo].[UserNotifications] ([NotificationId], [UserId], [IsRead]) 
             VALUES (2, N'a7d12f08-ec6a-435a-b20d-9364e5b26b63', 0)
+            INSERT INTO [dbo].[UserNotifications] ([NotificationId], [UserId], [IsRead]) 
+            VALUES (3, N'a7d12f08-ec6a-435a-b20d-9364e5b26b63', 0)
 
 
             ");
