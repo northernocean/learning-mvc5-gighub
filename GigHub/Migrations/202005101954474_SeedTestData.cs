@@ -2,11 +2,15 @@
 {
     using System.Data.Entity.Migrations;
 
-    public partial class SeedACancelledGig : DbMigration
+    public partial class SeedTestData : DbMigration
     {
 
         public override void Up()
         {
+
+            Sql(@"INSERT INTO [dbo].[Followers] ([ArtistId],[UserId]) 
+            VALUES (N'1def91ce-9d0f-401b-ae6e-98b120bf6994',N'a7d12f08-ec6a-435a-b20d-9364e5b26b63')");
+
             Sql(@"UPDATE [dbo].[Gigs] 
             SET [IsCancelled] = 'True' 
             WHERE [Venue] = 'Black River Music Festival' AND [ArtistId] = N'1def91ce-9d0f-401b-ae6e-98b120bf6994';");
@@ -36,5 +40,6 @@
         public override void Down()
         {
         }
+
     }
 }
