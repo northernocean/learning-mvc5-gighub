@@ -42,14 +42,47 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
+    <script type="text-my-template" id="notifications-template">
+        <ul>
+            <%
+                _.each(notifications, function(notification){
+                    if(notification.type == 1){ %>
+                        <li><%= notification.artist %> has cancelled the gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
+                    <% }
+                    if(notification.type == 2){ %>
+                        <li><%= notification.artist %> has changed the gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
+                    <% }
+                    if(notification.type == 3){ %>
+                        <li><%= notification.artist %> has booked a gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
+                    <% }
+            
+                })
+            %>
+        </ul>
+    </script>
     <script>
         $(document).ready(function () {
             $.getJSON("/api/notifications", function (notifications) {
-                $(".js-notifications-count")
-                    .text(notifications.length)
-                    .removeClass("hide")
-                    .addClass("animate__animated animate__bounceInDown")
+                console.log(notifications); //TODO: remove this debugging helper
+                if (notifications.length > 0) {
+                    $(".js-notifications-count")
+                        .text(notifications.length)
+                        .removeClass("hide")
+                        .addClass("animate__animated animate__bounceInDown");
+                    $(".notifications").popover({
+                        html: true,
+                        title: "Notifications",
+                        content: function () {
+                            var compiled = _.template($("#notifications-template").html());
+                            return compiled({ notifications: notifications });
+                        },
+                        placement: "bottom"
+                    });
+                }
             });
+
+
 
         });
     </script>

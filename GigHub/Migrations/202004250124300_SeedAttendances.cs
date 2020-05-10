@@ -15,11 +15,9 @@
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-06 20:00','Mojo',4);");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-09 20:00','JJs',4);");
             Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-13 13:00','Black River Music Festival',4);");
+            Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-14 13:00','Heart Magic',4);");
 
-            // Add a canceled gig
-            Sql("insert into [dbo].[Gigs] ([ArtistId],[DateTime],[Venue],[GenreId]) values (N'1def91ce-9d0f-401b-ae6e-98b120bf6994','2022-09-15 19:00','Market Street Cafe (Cancelled)',3)");
-
-            //Set user@gighub.com to attend Pops gigs
+            //Set user@gighub.com to attend all Lollypops Pops gigs
             Sql("insert into [dbo].[Attendances] ([GigId],[AttendeeId]) select Id, 'a7d12f08-ec6a-435a-b20d-9364e5b26b63' as AttendeeId from [dbo].[Gigs] where ArtistId = N'1def91ce-9d0f-401b-ae6e-98b120bf6994'");
         }
 
