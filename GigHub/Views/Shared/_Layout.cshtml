@@ -50,8 +50,17 @@
                     if(notification.type == 1){ %>
                         <li><%= notification.artist %> has cancelled the gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
                     <% }
-                    if(notification.type == 2){ %>
-                        <li><%= notification.artist %> has changed the gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
+                    if(notification.type == 2 && notification.venue != notification.originalVenue && notification.dateTime != notification.originalDateTime){ %>
+                        <li><%= notification.artist %> has changed the gig at <%= notification.originalVenue %> at <%= notification.originalDateTime %>.
+                            The new event will be held at <%= notification.venue %> at <%= notification.dateTime %>. </li>
+                    <% }
+                    if(notification.type == 2 && notification.venue != notification.originalVenue && notification.dateTime == notification.originalDateTime){ %>
+                        <li><%= notification.artist %> has changed the gig at <%= notification.originalVenue %> at <%= notification.originalDateTime %>.
+                            The event will now be held at <%= notification.venue %>. </li>
+                    <% }
+                    if(notification.type == 2 && notification.dateTime != notification.originalDateTime && notification.venue == notification.originalVenue){ %>
+                        <li><%= notification.artist %> has changed the gig at <%= notification.originalVenue %> at <%= notification.originalDateTime %>.
+                            The event will now be held at <%= notification.dateTime %>. </li>
                     <% }
                     if(notification.type == 3){ %>
                         <li><%= notification.artist %> has booked a gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>

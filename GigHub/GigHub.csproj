@@ -239,10 +239,6 @@
     <Compile Include="Migrations\202004250108252_AddAttendances.designer.cs">
       <DependentUpon>202004250108252_AddAttendances.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004250124300_SeedAttendances.cs" />
-    <Compile Include="Migrations\202004250124300_SeedAttendances.designer.cs">
-      <DependentUpon>202004250124300_SeedAttendances.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202004261312383_AddFollowers.cs" />
     <Compile Include="Migrations\202004261312383_AddFollowers.designer.cs">
       <DependentUpon>202004261312383_AddFollowers.cs</DependentUpon>
@@ -476,9 +472,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004250108252_AddAttendances.resx">
       <DependentUpon>202004250108252_AddAttendances.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004250124300_SeedAttendances.resx">
-      <DependentUpon>202004250124300_SeedAttendances.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004261312383_AddFollowers.resx">
       <DependentUpon>202004261312383_AddFollowers.cs</DependentUpon>
