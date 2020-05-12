@@ -10,7 +10,8 @@ namespace GigHub
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/umd/popper.js",
-                        "~/Scripts/underscore.js"));
+                        "~/Scripts/underscore.js",
+                        "~/Scripts/moment.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

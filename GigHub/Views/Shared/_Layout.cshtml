@@ -48,22 +48,22 @@
             <%
                 _.each(notifications, function(notification){
                     if(notification.type == 1){ %>
-                        <li><span class="artist-name"><%= notification.artist.name %></span> has cancelled the gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
+                        <li><span class="artist-name"><%= notification.artist.name %></span> has cancelled the gig at <%= notification.venue %> at <%= moment(notification.dateTime).format("YYYY-MM-DD HH:mm") %>.</li>
                     <% }
-                    if(notification.type == 2 && notification.venue != notification.originalVenue && notification.dateTime != notification.originalDateTime){ %>
-                        <li><span class="artist-name"><%= notification.artist.name %></span> has changed the gig at <%= notification.originalVenue %> at <%= notification.originalDateTime %>.
-                            The new event will be held at <%= notification.venue %> at <%= notification.dateTime %>. </li>
+                    if(notification.type == 2 && notification.venue != notification.originalVenue && moment(notification.dateTime).format("YYYY-MM-DD HH:mm") != moment(notification.originalDateTime).format("YYYY-MM-DD HH:mm")){ %>
+                        <li><span class="artist-name"><%= notification.artist.name %></span> has changed the gig at <%= notification.originalVenue %> at <%= moment(notification.originalDateTime).format("YYYY-MM-DD HH:mm") %>.
+                            The new event will be held at <%= notification.venue %> at <%= moment(notification.dateTime).format("YYYY-MM-DD HH:mm") %>. </li>
                     <% }
-                    if(notification.type == 2 && notification.venue != notification.originalVenue && notification.dateTime == notification.originalDateTime){ %>
-                        <li><span class="artist-name"><%= notification.artist.name %></span> has changed the gig at <%= notification.originalVenue %> at <%= notification.originalDateTime %>.
+                    if(notification.type == 2 && notification.venue != notification.originalVenue && moment(notification.dateTime).format("YYYY-MM-DD HH:mm") == moment(notification.originalDateTime).format("YYYY-MM-DD HH:mm")){ %>
+                        <li><span class="artist-name"><%= notification.artist.name %></span> has changed the gig at <%= notification.originalVenue %> at <%= moment(notification.originalDateTime).format("YYYY-MM-DD HH:mm") %>.
                             The event will now be held at <%= notification.venue %>. </li>
                     <% }
-                    if(notification.type == 2 && notification.dateTime != notification.originalDateTime && notification.venue == notification.originalVenue){ %>
-                        <li><span class="artist-name"><%= notification.artist.name %></span> has changed the gig at <%= notification.originalVenue %> at <%= notification.originalDateTime %>.
-                            The event will now be held at <%= notification.dateTime %>. </li>
+                    if(notification.type == 2 && moment(notification.dateTime).format("YYYY-MM-DD HH:mm") != moment(notification.originalDateTime).format("YYYY-MM-DD HH:mm") && notification.venue == notification.originalVenue){ %>
+                        <li><span class="artist-name"><%= notification.artist.name %></span> has changed the gig at <%= notification.originalVenue %> at <%= moment(notification.originalDateTime).format("YYYY-MM-DD HH:mm") %>.
+                            The event will now be held at <%= moment(notification.dateTime).format("YYYY-MM-DD HH:mm") %>. </li>
                     <% }
                     if(notification.type == 3){ %>
-                        <li><span class="artist-name"><%= notification.artist.name %></span> has booked a gig at <%= notification.venue %> at <%= notification.dateTime %>.</li>
+                        <li><span class="artist-name"><%= notification.artist.name %></span> has booked a gig at <%= notification.venue %> at <%= moment(notification.dateTime).format("YYYY-MM-DD HH:mm") %>.</li>
                     <% }
             
                 })

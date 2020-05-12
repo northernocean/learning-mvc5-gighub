@@ -301,6 +301,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\umd\underscore-min.js" />
     <Content Include="Scripts\umd\underscore.js" />
     <Content Include="Scripts\underscore-min.js" />
