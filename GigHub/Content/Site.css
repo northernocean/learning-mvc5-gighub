@@ -132,6 +132,24 @@ li.notifications .badge {
     display: block;
 }
 
+ul.notifications-popover {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.notifications-popover > li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+ul.notifications-popover > li > span.artist-name {
+    font-weight: 700;
+}
+
+ul.notifications-popover > li:last-child {
+    border-bottom: none;
+}
+
 /* Bootstrap 3 overrides - 
     I'm not using this CSS because I'm using BS4 and this is BS3 customization. 
     Styling is not really my interest at the moment so I'm not spending time a lot of time 
