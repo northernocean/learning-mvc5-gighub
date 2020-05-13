@@ -271,10 +271,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fa-all.css" />
     <Content Include="Content\fa-all.min.css" />
+    <Content Include="Content\site.css" />
+    <Content Include="Content\site.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\site.css" />
+    <None Include="Content\site.less" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />

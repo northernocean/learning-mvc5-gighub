@@ -1,216 +1,121 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+  padding-bottom: 20px;
+  padding-top: 50px;
 }
-
-/* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
-    white-space: normal;
+  white-space: normal;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
+input {
+  max-width: 280px;
+}
+select {
+  max-width: 280px;
+}
 textarea {
-    max-width: 280px;
+  max-width: 280px;
 }
-
 span.field-validation-error {
-    color: red;
+  color: red;
 }
-
-span.field-validation-error {
-    color: red;
-}
-
-/* Boostrap 4 overrides */
 nav .navbar {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
 }
-
 li.notifications .fa-bell {
-    height: 100%;
-    color: #80dfff; /* #005c7a 004d66 00394d */
+  color: #80dfff;
+  height: 100%;
 }
-
 li.notifications .badge {
-    position: absolute;
-    color: #80dfff;
-    padding: 0;
+  color: #80dfff;
+  padding: 0;
+  position: absolute;
 }
-
-/* Page Specific Styles */
-
 .gigs-calendar > h1 {
-    margin: 20px 0;
+  margin: 20px 0;
 }
-
 .gigs-calendar .gigs {
-    padding-left: 0;
+  padding-left: 0;
 }
-
 .gigs-calendar .gigs li {
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    list-style: none;
+  list-style: none;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  position: relative;
 }
-
 .gigs-calendar .gigs li .date {
-    background: red;
-    color: white;
-    text-align: center;
-    width: 60px;
-    border-radius: 8px;
+  background: red;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  width: 60px;
 }
-
 .gigs-calendar .gigs li .date > .month {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 2px 6px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+  text-transform: uppercase;
 }
-
 .gigs-calendar .gigs li .date > .day {
-    background: #f3f3f3;
-    color: #333;
-    font-size: 20px;
-    padding: 2px 6px;
+  background: #f3f3f3;
+  color: #333333;
+  font-size: 20px;
+  padding: 2px 6px;
 }
-
 .gigs-calendar .gigs li .details {
-    position: absolute;
-    top: 0;
-    left: 70px;
-    margin-top: 6px;
+  left: 70px;
+  margin-top: 6px;
+  position: absolute;
+  top: 0;
 }
-
-.gigs-calendar .gigs li .details .artist,.venue {
-    font-weight: bold;
-    margin-bottom: 5px;
+.gigs-calendar .gigs li .details .artist {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
-
 .gigs-calendar .gigs li .details .artist span {
-    margin-left: 9px;
-    color: steelblue;
+  color: steelblue;
+  margin-left: 9px;
 }
-
 .gigs-calendar .gigs li .details .genre {
-    font-size: 14px;
+  font-size: 14px;
 }
-
 .gigs-calendar .gigs li .details button {
-    border-radius: 9px;
-    color: #3f3f3f;
-    float: right;
+  border-radius: 9px;
+  color: #3f3f3f;
+  float: right;
 }
-
 .gigs-calendar .gigs li .details button.btn-secondary {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
-
 .gigs-calendar .gigs li .actions {
-    font-size: 15px;
-    display: none;
+  display: none;
+  font-size: 15px;
 }
-
 .gigs-calendar .gigs li:hover .actions {
-    font-size: 15px;
-    display: block;
+  display: block;
+  font-size: 15px;
 }
-
+.venue {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 ul.notifications-popover {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
-
 ul.notifications-popover > li {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 0;
 }
-
-ul.notifications-popover > li > span.artist-name {
-    font-weight: 700;
-}
-
 ul.notifications-popover > li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
-
-/* Bootstrap 3 overrides - 
-    I'm not using this CSS because I'm using BS4 and this is BS3 customization. 
-    Styling is not really my interest at the moment so I'm not spending time a lot of time 
-    styling the site. Instead I added some bootstrap theming from bootswatch.com (yeti theme) and
-    a few small changes. This CSS (untested) for BS3 is left here as a reference for others who might 
-    be interested. It is borrowed from a similar project: https://github.com/maicolalencar/GigHub
-
-.navbar-inverse {
-    background-color: #f50606;
-    border-color: #ec0b0b;
+ul.notifications-popover > li > span.artist-name {
+  font-weight: 700;
 }
-
-    .navbar-inverse .navbar-brand {
-        color: #fff;
-    }
-
-    .navbar-inverse .navbar-nav > li > a {
-        color: #fff;
-    }
-
-    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        background-color: #e00e0e78;
-    }
-
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    text-decoration: none;
-    background-color: #e2544c;
-}
-
-.navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
-}
-
-body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    line-height: 1.1;
-}
-
-.navbar-brand {
-    font-weight: 700;
-}
-
-.dropdown-menu {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-.form-control:focus {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-.form-control {
-    border-radius: 9px;
-}
-
-.btn {
-    border-radius: 9px;
-    padding: 8px 22px;
-}
-
-*/
