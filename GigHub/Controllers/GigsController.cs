@@ -20,6 +20,12 @@ namespace GigHub.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [HttpPost]
+        public ActionResult Search(GigsViewModel viewModel) 
+        {
+            return RedirectToAction("Index", "Home", new { query = viewModel.SearchTerm });
+        }
+
         [Authorize]
         public ActionResult Create()
         {

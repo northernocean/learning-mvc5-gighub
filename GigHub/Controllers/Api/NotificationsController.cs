@@ -9,6 +9,7 @@ using System.Web.Http;
 namespace GigHub.Controllers.Api
 {
 
+    [Authorize]
     public class NotificationsController : ApiController
     {
 
@@ -17,6 +18,20 @@ namespace GigHub.Controllers.Api
         public NotificationsController()
         {
             _context = new ApplicationDbContext();
+        }
+
+
+        [HttpPost]
+        public IHttpActionResult MarkRead()
+        {
+            var userId = User.Identity.GetUserId();
+            foreach (var notification in _context.UserNotifications
+                                            .Where(u => u.UserId == userId).ToList())
+            {
+                notification.MarkRead();
+            }
+            _context.SaveChanges();
+            return Ok();
         }
 
         [HttpGet]

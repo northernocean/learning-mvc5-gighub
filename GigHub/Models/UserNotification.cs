@@ -28,7 +28,7 @@ namespace GigHub.Models
         public string UserId { get; private set; }
 
         [Required]
-        public bool IsRead { get; set; }
+        public bool IsRead { get; private set; }
 
         // Navigation Properties
         [Required]
@@ -36,6 +36,11 @@ namespace GigHub.Models
 
         [Required]
         public ApplicationUser User { get; private set; }
+
+        public void MarkRead()
+        {
+            IsRead = true;
+        }
 
     }
 }
