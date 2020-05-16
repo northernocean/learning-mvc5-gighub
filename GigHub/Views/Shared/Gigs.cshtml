@@ -29,7 +29,7 @@
                 </div>
                 <div class="details">
                     <div class="artist">
-                        @Html.ActionLink(@gig.Artist.Name,"Details","Gigs",new {id = gig.Id}, new { })
+                        <a href="@Url.Action("Details","Gigs",new {id = gig.Id})">@gig.Artist.Name</a>
                     @if (Model.ShowActions)
                     {
                         <span class="far fa-star js-toggle-follow" data-artist-id="@gig.ArtistId"></span>

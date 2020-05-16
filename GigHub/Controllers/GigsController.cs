@@ -23,28 +23,31 @@ namespace GigHub.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var gig = _context.Gigs.Include(a => a.Artist).Single(g => g.Id == id);
+
+            var gig = _context.Gigs
+                .Include(a => a.Artist)
+                .Include(g => g.Genre)
+                .SingleOrDefault(g => g.Id == id);
+
+            if (gig is null)
+                return HttpNotFound();
+
             var viewModel = new GigDetailsViewModel
             {
                 ArtistName = gig.Artist.Name,
                 ArtistId = gig.ArtistId,
                 Venue = gig.Venue,
-                DateTime = gig.DateTime
+                DateTime = gig.DateTime,
+                Genre = gig.Genre.Name
             };
+
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                var follower = _context.Followers.SingleOrDefault(f => f.UserId == userId && f.ArtistId == gig.ArtistId);
-                if (follower is null)
-                    viewModel.Following = false;
-                else
-                    viewModel.Following = true;
-
-                var attending = _context.Attendances.SingleOrDefault(a => a.AttendeeId == userId && a.GigId == gig.Id);
-                if (attending is null)
-                    viewModel.Attending = false;
-                else
-                    viewModel.Attending = true;
+                viewModel.Following = _context.Followers
+                    .Any(f => f.UserId == userId && f.ArtistId == gig.ArtistId);
+                viewModel.Attending = _context.Attendances
+                    .Any(a => a.AttendeeId == userId && a.GigId == gig.Id);
             }
 
             return View("GigDetails", viewModel);

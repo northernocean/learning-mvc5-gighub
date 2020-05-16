@@ -6,7 +6,7 @@
 
 <div class="gig-details">
     <h2>@Model.ArtistName</h2>
-    @if(Model.Following == true)
+    @if(Model.Following)
     {
         <button class="btn btn-primary">Following</button>
     }
@@ -15,9 +15,9 @@
         <button class="btn btn-secondary js-follow-artist" data-artist-id="@Model.ArtistId">Follow</button>
     }
     
-    <p>Performing at @Model.Venue on @Model.EventDate() at @Model.EventTime()</p>
+    <p>Performing at @Model.Venue on @Model.DateTime.ToString("d MMM") at @Model.DateTime.ToString("HH:mm")</p>
 
-    @if(Model.Following == true)
+    @if(Model.Attending)
     {
         <p>You are going to this event.</p>
     }

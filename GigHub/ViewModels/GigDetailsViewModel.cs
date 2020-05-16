@@ -17,20 +17,14 @@ namespace GigHub.ViewModels
         [Required]
         public DateTime DateTime { get; set; }
 
-        public bool? Attending { get; set; }
+        [Required]
+        public string Genre { get; set; }
 
-        public bool? Following { get; set; }
+        [Required]
+        public bool Attending { get; set; }
 
-        public string EventDate()
-        {
-            return this.DateTime.ToString("d MMM");
-        }
-
-        public string EventTime()
-        {
-            return this.DateTime.ToString("HH:mm");
-        }
-
+        [Required]
+        public bool Following { get; set; }
 
     }
 }
