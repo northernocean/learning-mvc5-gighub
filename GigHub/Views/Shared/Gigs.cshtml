@@ -19,7 +19,7 @@
         </div>
     }
 
-    <ul class="gigs">
+    <ul id="df8e06f3d7eb" class="gigs">
         @foreach (var gig in Model.upcomingGigs)
         {
             <li>
@@ -42,8 +42,10 @@
                     <span class="genre">@gig.Genre.Name</span>
                     @if (Model.ShowActions && !gig.IsCancelled)
                     {
-                        <button class="btn @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-secondary") btn-sm js-toggle-attendance" data-gig-id="@gig.Id">
-                            @(Model.Attendances.Contains(gig.Id) ? "Attending" : "Attend")</button>
+                        <button 
+                            class="btn @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-secondary") btn-sm js-toggle-attendance"
+                            data-gig-id="@gig.Id"
+                            >@(Model.Attendances.Contains(gig.Id) ? "Attending" : "Attend")</button>
                     }
                 </div>
             </li>
@@ -57,7 +59,7 @@
     <script>
         $(document).ready(function () {
 
-            gigsController.init();
+            GigsController.init("#df8e06f3d7eb");
 
             $(".js-toggle-follow").click(function (e) {
 

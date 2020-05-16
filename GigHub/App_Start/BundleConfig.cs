@@ -30,7 +30,12 @@ namespace GigHub
                 "~/Content/site.css",
                 "~/Content/animate.css"));
 
+            //attendanceService.js first, since it is required by controller.js. 
+            //  As dependencies and order of loading scripts becomes more complex,
+            //  consider a third party solution such as http://requirejs.org
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/app/services/attendanceService.js",
+                "~/Scripts/app/controllers/gigsController.js",
                 "~/Scripts/app/app.js"));
         }
     }
