@@ -75,9 +75,8 @@
 
                 console.log("starclick");
                 let el = e.target;
-                console.log(el);
                 $.get({
-                    url: "api/followers/" + el.getAttribute("data-artist-id"),
+                    url: "/api/followers/" + el.getAttribute("data-artist-id"),
                     success: function () {
                         $(el)
                             .removeClass("far")

@@ -34,20 +34,20 @@ namespace GigHub.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                var follower = _context.Followers.Single(f => f.UserId == userId && f.ArtistId == gig.ArtistId);
+                var follower = _context.Followers.SingleOrDefault(f => f.UserId == userId && f.ArtistId == gig.ArtistId);
                 if (follower is null)
                     viewModel.Following = false;
                 else
                     viewModel.Following = true;
 
-                var attending = _context.Attendances.Single(a => a.AttendeeId == userId && a.GigId == gig.Id);
+                var attending = _context.Attendances.SingleOrDefault(a => a.AttendeeId == userId && a.GigId == gig.Id);
                 if (attending is null)
                     viewModel.Attending = false;
                 else
                     viewModel.Attending = true;
             }
 
-            return View("Details", viewModel);
+            return View("GigDetails", viewModel);
 
 
         }
