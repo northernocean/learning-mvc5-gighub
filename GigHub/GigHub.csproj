@@ -193,6 +193,7 @@
     <Compile Include="Controllers\Api\GigsController.cs" />
     <Compile Include="Dtos\ArtistDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
+    <Compile Include="ViewModels\GigDetailsViewModel.cs" />
     <Compile Include="Dtos\GigDto.cs" />
     <Compile Include="Dtos\NotificationDto.cs" />
     <Compile Include="Controllers\Api\NotificationsController.cs" />
@@ -449,6 +450,7 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Scripts\underscore-min.js.map" />
     <Content Include="Scripts\underscore.js.map" />
+    <Content Include="Views\Gigs\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

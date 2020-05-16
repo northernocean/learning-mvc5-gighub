@@ -20,8 +20,40 @@ namespace GigHub.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var gig = _context.Gigs.Include(a => a.Artist).Single(g => g.Id == id);
+            var viewModel = new GigDetailsViewModel
+            {
+                ArtistName = gig.Artist.Name,
+                ArtistId = gig.ArtistId,
+                Venue = gig.Venue,
+                DateTime = gig.DateTime
+            };
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+                var follower = _context.Followers.Single(f => f.UserId == userId && f.ArtistId == gig.ArtistId);
+                if (follower is null)
+                    viewModel.Following = false;
+                else
+                    viewModel.Following = true;
+
+                var attending = _context.Attendances.Single(a => a.AttendeeId == userId && a.GigId == gig.Id);
+                if (attending is null)
+                    viewModel.Attending = false;
+                else
+                    viewModel.Attending = true;
+            }
+
+            return View("Details", viewModel);
+
+
+        }
+
         [HttpPost]
-        public ActionResult Search(GigsViewModel viewModel) 
+        public ActionResult Search(GigsViewModel viewModel)
         {
             return RedirectToAction("Index", "Home", new { query = viewModel.SearchTerm });
         }
