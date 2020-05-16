@@ -42,7 +42,8 @@
                 <span class="genre">@gig.Genre.Name</span>
                 @if (Model.ShowActions && !gig.IsCancelled)
                 {
-                    <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">Attend</button>
+                    <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">
+                        @(Model.Attendances.Contains(gig.Id) ? "Attending" : "Attend")</button>
                 }
             </div>
         </li>
