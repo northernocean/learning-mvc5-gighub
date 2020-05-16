@@ -30,24 +30,24 @@
                 <div class="details">
                     <div class="artist">
                         <a href="@Url.Action("Details","Gigs",new {id = gig.Id})">@gig.Artist.Name</a>
-                    @if (Model.ShowActions)
+                        @if (Model.ShowActions)
+                        {
+                            <span class="far fa-star js-toggle-follow" data-artist-id="@gig.ArtistId"></span>
+                        }
+                        @if (gig.IsCancelled)
+                        {
+                            <span class="control-label label-warning">Cancelled</span>
+                        }
+                    </div>
+                    <span class="genre">@gig.Genre.Name</span>
+                    @if (Model.ShowActions && !gig.IsCancelled)
                     {
-                        <span class="far fa-star js-toggle-follow" data-artist-id="@gig.ArtistId"></span>
-                    }
-                    @if (gig.IsCancelled)
-                    {
-                        <span class="control-label label-warning">Cancelled</span>
+                        <button class="btn @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-secondary") btn-sm js-toggle-attendance" data-gig-id="@gig.Id">
+                            @(Model.Attendances.Contains(gig.Id) ? "Attending" : "Attend")</button>
                     }
                 </div>
-                <span class="genre">@gig.Genre.Name</span>
-                @if (Model.ShowActions && !gig.IsCancelled)
-                {
-                    <button class="btn btn-secondary btn-sm js-toggle-attendance" data-gig-id="@gig.Id">
-                        @(Model.Attendances.Contains(gig.Id) ? "Attending" : "Attend")</button>
-                }
-            </div>
-        </li>
-    }
+            </li>
+        }
     </ul>
 </div>
 
@@ -59,17 +59,39 @@
 
             $(".js-toggle-attendance").click(function (e) {
                 var button = e.target;
-                $.get({
-                    url: "/api/attendances/" + button.getAttribute("data-gig-id"),
-                    success: function () {
-                        $(button).removeClass("btn-default")
-                            .addClass("btn-info")
-                            .text("Attending");
-                    },
-                    error: function () {
-                        alert("An error occurred.");
-                    }
-                });
+                if ($(button).hasClass("btn-secondary")) {
+                    console.log("toggling to attending")
+                    $.ajax({
+                        url: "/api/attendances/" + button.getAttribute("data-gig-id"),
+                        method: "GET",
+                        success: function () {
+                            $(button).removeClass("btn-secondary")
+                                .addClass("btn-info")
+                                .text("Attending");
+                        },
+                        error: function () {
+                            alert("An error occurred.");
+                        }
+                    });
+                }
+                else if ($(button).hasClass("btn-info")) {
+                    console.log("toggling to not attending")
+                    $.ajax({
+                        url: "/api/attendances/" + button.getAttribute("data-gig-id"),
+                        method: "DELETE",
+                        success: function () {
+                            $(button).removeClass("btn-info")
+                                .addClass("btn-secondary")
+                                .text("Attend");
+                        },
+                        error: function () {
+                            alert("An error occurred.");
+                        }
+                    });
+                }
+                else {
+                    Console.log("Error resolving attendance status for toggling attendance.")
+                }
             });
 
             $(".js-toggle-follow").click(function (e) {

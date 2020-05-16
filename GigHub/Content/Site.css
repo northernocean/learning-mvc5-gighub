@@ -92,10 +92,12 @@ li.notifications .badge {
   margin-top: 6px;
   position: absolute;
   top: 0;
+  min-width: 150px;
 }
 .gigs-calendar .gigs li .details .artist {
   font-size: 1rem;
   margin-bottom: 5px;
+  min-width: 150px;
 }
 .gigs-calendar .gigs li .details .artist span {
   color: steelblue;

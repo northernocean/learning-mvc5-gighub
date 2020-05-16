@@ -43,6 +43,25 @@ namespace GigHub.Controllers
 
         }
 
+        [HttpDelete]
+        public IHttpActionResult CancelAttendance(int id)
+        {
+
+            var userId = User.Identity.GetUserId();
+
+            var attendance = _context.Attendances
+                .SingleOrDefault(a => a.GigId == id && a.AttendeeId == userId);
+
+            if (attendance is null)
+                return BadRequest();
+
+            _context.Attendances.Remove(attendance);
+            _context.SaveChanges();
+
+            return Ok(id);
+
+        }
+
 
     }
 }

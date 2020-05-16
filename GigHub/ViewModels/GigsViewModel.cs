@@ -9,7 +9,7 @@ namespace GigHub.ViewModels
         public bool ShowActions { get; set; }
         public string Heading { get; set; } = "";
         public string SearchTerm { get; set; } = "";
-        public IEnumerable<int> Attendances { get; set; }
+        public IEnumerable<int> Attendances { get; set; } = new List<int>();
         public string AuthenticatedUserId { get; set; } = "";
     }
 }
