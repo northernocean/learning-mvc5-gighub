@@ -94,7 +94,7 @@ li.notifications .badge {
   top: 0;
 }
 .gigs-calendar .gigs li .details .artist {
-  font-weight: bold;
+  font-size: 1rem;
   margin-bottom: 5px;
 }
 .gigs-calendar .gigs li .details .artist span {
