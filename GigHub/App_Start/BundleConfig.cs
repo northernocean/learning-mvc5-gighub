@@ -29,6 +29,9 @@ namespace GigHub
                 "~/Content/fa-all.css",
                 "~/Content/site.css",
                 "~/Content/animate.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/app/app.js"));
         }
     }
 }
