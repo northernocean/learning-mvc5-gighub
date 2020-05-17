@@ -19,7 +19,7 @@
         </div>
     }
 
-    <ul id="df8e06f3d7eb" class="gigs">
+    <ul id="gigs-calendar-container" class="gigs">
         @foreach (var gig in Model.upcomingGigs)
         {
             <li>
@@ -32,7 +32,7 @@
                         <a href="@Url.Action("Details","Gigs",new {id = gig.Id})">@gig.Artist.Name</a>
                         @if (Model.ShowActions)
                         {
-                            <span class="far fa-star js-toggle-follow" data-artist-id="@gig.ArtistId"></span>
+                            <a class="follow" data-artist-id="@gig.ArtistId" href="#">@(@Model.Followings.Contains(gig.ArtistId) ? "following" : "follow")</a>
                         }
                         @if (gig.IsCancelled)
                         {
@@ -59,23 +59,42 @@
     <script>
         $(document).ready(function () {
 
-            GigsController.init("#df8e06f3d7eb");
+            GigsController.init("#gigs-calendar-container");
 
-            $(".js-toggle-follow").click(function (e) {
-
-                console.log("starclick");
-                let el = e.target;
-                $.get({
-                    url: "/api/followers/" + el.getAttribute("data-artist-id"),
-                    success: function () {
-                        $(el)
-                            .removeClass("far")
-                            .addClass("fas");
-                    },
-                    error: function () {
-                        alert("An error occurred.");
+            $("#gigs-calendar-container").click(function (e) {
+                if ($(e.target).hasClass("follow")) {
+                    e.preventDefault();
+                    let el = $(e.target);
+                    if (el.text() == "follow") {
+                        console.log("Follow");
+                        $.ajax({
+                            url: "/api/followers/" + el.attr("data-artist-id"),
+                            method: "GET",
+                            success: function () {
+                                $(el).text("following")
+                            },
+                            error: function () {
+                                alert("An error occurred.");
+                            }
+                        });
                     }
-                });
+                    else if (el.text() == "following") {
+                    console.log("Unfollow");
+                        $.ajax({
+                            url: "/api/followers/" + el.attr("data-artist-id"),
+                            method: "DELETE",
+                            success: function () {
+                                $(el).text("follow")
+                            },
+                            error: function () {
+                                alert("An error occurred.");
+                            }
+                        });
+                    }
+                    else {
+                        alert("Error resolving target for follow/unfollow action.");
+                    }
+                }
             });
         });
 

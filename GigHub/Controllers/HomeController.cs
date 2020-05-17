@@ -40,7 +40,16 @@ namespace GigHub.Controllers
                 var userId = User.Identity.GetUserId();
                 userAttendances = _context.Attendances
                     .Where(a => a.AttendeeId == userId)
-                    .Select(g => g.GigId).ToList();
+                    .Select(g => g.GigId);
+            }
+
+            IEnumerable<string> userFollowings = new List<string>();
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+                userFollowings = _context.Followers
+                    .Where(f => f.UserId == userId)
+                    .Select(a => a.ArtistId);
             }
 
             var viewModel = new GigsViewModel
@@ -49,7 +58,8 @@ namespace GigHub.Controllers
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Upcoming Gigs",
                 SearchTerm = query,
-                Attendances = userAttendances
+                Attendances = userAttendances.ToList(),
+                Followings = userFollowings.ToList()
             };
 
             return View("Gigs", viewModel);

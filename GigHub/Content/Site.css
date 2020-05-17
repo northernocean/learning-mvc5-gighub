@@ -103,6 +103,11 @@ li.notifications .badge {
   color: steelblue;
   margin-left: 9px;
 }
+.gigs-calendar .gigs li .details .artist a:nth-child(2) {
+  color: steelblue;
+  margin-left: 9px;
+  font-size: 0.75rem;
+}
 .gigs-calendar .gigs li .details .genre {
   font-size: 14px;
 }
