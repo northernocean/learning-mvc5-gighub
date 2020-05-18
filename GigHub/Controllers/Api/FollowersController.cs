@@ -42,7 +42,7 @@ namespace GigHub.Controllers.Api
             return Ok();
 
         }
-        
+
         [HttpDelete]
         public IHttpActionResult DeleteFollowing(string id)
         {
@@ -58,7 +58,7 @@ namespace GigHub.Controllers.Api
             _context.Followers.Remove(follower);
             _context.SaveChanges();
 
-            return Ok();
+            return Ok(id);
 
         }
     }

@@ -30,10 +30,12 @@
                 <div class="details">
                     <div class="artist">
                         <a href="@Url.Action("Details","Gigs",new {id = gig.Id})">@gig.Artist.Name</a>
+                        @*
                         @if (Model.ShowActions)
                         {
                             <a class="follow" data-artist-id="@gig.ArtistId" href="#">@(@Model.Followings.Contains(gig.ArtistId) ? "following" : "follow")</a>
                         }
+                        *@
                         @if (gig.IsCancelled)
                         {
                             <span class="control-label label-warning">Cancelled</span>

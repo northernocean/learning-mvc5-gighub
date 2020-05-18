@@ -35,7 +35,9 @@ namespace GigHub
             //  consider a third party solution such as http://requirejs.org
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/services/attendanceService.js",
+                "~/Scripts/app/services/followerService.js",
                 "~/Scripts/app/controllers/gigsController.js",
+                "~/Scripts/app/controllers/gigDetailsController.js",
                 "~/Scripts/app/app.js"));
         }
     }

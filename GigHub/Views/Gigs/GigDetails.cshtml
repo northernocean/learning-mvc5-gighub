@@ -29,45 +29,10 @@
 
         $(document).ready(function () {
 
-            $(".js-follow-artist").click(function (e) {
-                console.log("clickee");
-                let self = $(e.target);
-                if (self.text() === "Follow") {
-                    console.log("Follow");
-                    $.ajax({
-                        url: "/api/followers/" + self.attr("data-artist-id"),
-                        method: "GET",
-                        success: function () {
-                            self.removeClass("btn-primary").addClass("btn-secondary").text("Stop Following");
-                        },
-                        error: function () {
-                            alert("An error occurred.");
-                        }
-                    });
-                }
-                else if (self.text() !== "Follow") {
-                console.log("Unfollow");
-                    $.ajax({
-                        url: "/api/followers/" + self.attr("data-artist-id"),
-                        method: "DELETE",
-                        success: function () {
-                            self.removeClass("btn-secondary").addClass("btn-primary").text("Follow");
-                        },
-                        error: function () {
-                            alert("An error occurred.");
-                        }
-                    });
-                }
-                else {
-                    alert("Error resolving target for follow/unfollow action.");
-                }
-            });
+            GigDetailsController.init(".gig-details");
+
         });
         
-        
-        
-        
-
     </script>
 }
 
