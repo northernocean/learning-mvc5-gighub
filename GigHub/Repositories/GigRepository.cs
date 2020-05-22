@@ -50,5 +50,17 @@ namespace GigHub.Repositories
                .Where(g => g.DateTime > DateTime.Now);
         }
 
+        public Gig GetGig(int id)
+        {
+            return _context.Gigs.SingleOrDefault(g => g.Id == id);
+        }
+
+        public IEnumerable<Gig> GetMyGigsWithGenre(string artistId)
+        {
+            return _context.Gigs
+               .Where(g => g.ArtistId == artistId && g.DateTime > DateTime.Now && !g.IsCancelled)
+               .Include(g => g.Genre)
+        }
+
     }
 }

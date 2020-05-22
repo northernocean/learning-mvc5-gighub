@@ -1,5 +1,6 @@
 ﻿using GigHub.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GigHub.Repositories
 {
@@ -15,6 +16,11 @@ namespace GigHub.Repositories
         public IEnumerable<Genre> GetGenres()
         {
             return _context.Genres;
+        }
+
+        public Genre GetGenre(int id)
+        {
+            return _context.Genres.SingleOrDefault(g => g.Id == id);
         }
     }
 }
