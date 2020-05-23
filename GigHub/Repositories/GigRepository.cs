@@ -33,7 +33,7 @@ namespace GigHub.Repositories
                 .OrderBy(c => c.DateTime)
                 .ToList();
         }
-        
+
         public IEnumerable<int> GetGigsIdsForGigsUserIsAttending(string userId)
         {
             return _context.Attendances
@@ -67,5 +67,9 @@ namespace GigHub.Repositories
                .Include(g => g.Genre);
         }
 
+        public void Add(Gig gig)
+        {
+            _context.Gigs.Add(gig);
+        }
     }
 }

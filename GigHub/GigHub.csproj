@@ -194,6 +194,7 @@
     <Compile Include="Controllers\FollowerRepository.cs" />
     <Compile Include="Dtos\ArtistDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Repositories\AttendanceRepository.cs" />
     <Compile Include="Repositories\GenreRepository.cs" />
     <Compile Include="Repositories\GigRepository.cs" />
