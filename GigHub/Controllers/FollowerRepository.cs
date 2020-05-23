@@ -14,7 +14,7 @@ namespace GigHub.Controllers
         }
 
 
-        public bool IsFollowing(string userId, string artistId)
+        public bool IsFollowing(string artistId, string userId)
         {
             return _context.Followers
                 .Any(f => f.UserId == userId && f.ArtistId == artistId);

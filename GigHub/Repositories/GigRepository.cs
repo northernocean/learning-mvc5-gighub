@@ -23,10 +23,10 @@ namespace GigHub.Repositories
                .SingleOrDefault(g => g.Id == gigId);
         }
 
-        public IEnumerable<Gig> GetGigsUserAttending(string userId, DateTime dateCutoff)
+        public IEnumerable<Gig> GetGigsUserIsAttending(string userId)
         {
             return _context.Attendances
-                .Where(c => c.AttendeeId == userId && c.Gig.DateTime > dateCutoff)
+                .Where(c => c.AttendeeId == userId && c.Gig.DateTime > DateTime.Now)
                 .Select(c => c.Gig)
                 .Include(c => c.Artist)
                 .Include(c => c.Genre)
@@ -34,7 +34,7 @@ namespace GigHub.Repositories
                 .ToList();
         }
 
-        public Gig GetGigWithArtistAndGenre(int id)
+        public Gig GetGig(int id)
         {
             return _context.Gigs
                 .Include(a => a.Artist)
@@ -42,7 +42,7 @@ namespace GigHub.Repositories
                 .SingleOrDefault(g => g.Id == id);
         }
 
-        public IEnumerable<Gig> GetUpcomingGigsWithArtistAndGenre()
+        public IEnumerable<Gig> GetUpcomingGigs()
         {
             return _context.Gigs
                .Include(g => g.Artist)
@@ -50,16 +50,11 @@ namespace GigHub.Repositories
                .Where(g => g.DateTime > DateTime.Now);
         }
 
-        public Gig GetGig(int id)
-        {
-            return _context.Gigs.SingleOrDefault(g => g.Id == id);
-        }
-
         public IEnumerable<Gig> GetMyGigsWithGenre(string artistId)
         {
             return _context.Gigs
                .Where(g => g.ArtistId == artistId && g.DateTime > DateTime.Now && !g.IsCancelled)
-               .Include(g => g.Genre)
+               .Include(g => g.Genre);
         }
 
     }

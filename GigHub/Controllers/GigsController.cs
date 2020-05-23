@@ -2,7 +2,6 @@
 using GigHub.Repositories;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -24,13 +23,14 @@ namespace GigHub.Controllers
             _attendanceRepository = new AttendanceRepository(_context);
             _gigRepository = new GigRepository(_context);
             _followerRepository = new FollowerRepository(_context);
+            _genreRepository = new GenreRepository(_context);
         }
 
         [HttpGet]
         public ActionResult Details(int id)
         {
 
-            var gig = _gigRepository.GetGigWithArtistAndGenre(id);
+            var gig = _gigRepository.GetGig(id);
 
             if (gig is null)
                 return HttpNotFound();
@@ -47,8 +47,8 @@ namespace GigHub.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                viewModel.Following = _followerRepository.IsFollowing(userId, gig.ArtistId);
-                viewModel.Attending = _attendanceRepository.IsAttending(userId, gig.Id);
+                viewModel.Following = _followerRepository.IsFollowing(gig.ArtistId, userId);
+                viewModel.Attending = _attendanceRepository.IsAttending(gig.Id, userId);
             }
 
             return View("GigDetails", viewModel);
@@ -112,7 +112,7 @@ namespace GigHub.Controllers
 
             GigsViewModel viewModel = new GigsViewModel
             {
-                UpcomingGigs = _gigRepository.GetGigsUserAttending(userId, DateTime.Now.Date.AddDays(-3)),
+                UpcomingGigs = _gigRepository.GetGigsUserIsAttending(userId),
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Attending"
             };
@@ -130,7 +130,7 @@ namespace GigHub.Controllers
 
             GigsViewModel viewModel = new GigsViewModel
             {
-                UpcomingGigs = _gigRepository.GetUpcomingGigsWithArtistAndGenre().ToList(),
+                UpcomingGigs = _gigRepository.GetUpcomingGigs().ToList(),
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Upcoming Gigs"
             };
