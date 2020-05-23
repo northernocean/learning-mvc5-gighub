@@ -101,7 +101,7 @@ namespace GigHub.Controllers
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
-            var gigs = _gigRepository.GetMyGigsWithGenre(userId).ToList();
+            var gigs = _gigRepository.GetGigs(userId).ToList();
             return View(gigs);
         }
 
@@ -113,6 +113,9 @@ namespace GigHub.Controllers
             GigsViewModel viewModel = new GigsViewModel
             {
                 UpcomingGigs = _gigRepository.GetGigsUserIsAttending(userId),
+                Attendances = _attendanceRepository
+                                .GetUpcomingAttendances(userId)
+                                .Select(g => g.GigId).ToList(),
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Attending"
             };

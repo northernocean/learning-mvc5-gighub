@@ -20,7 +20,7 @@ namespace GigHub.Repositories
                     .Any(a => a.AttendeeId == userId && a.GigId == gigId);
         }
 
-        public IEnumerable<Attendance> GetFutureAttendances(string userId)
+        public IEnumerable<Attendance> GetUpcomingAttendances(string userId)
         {
             return _context.Attendances
                 .Where(a => a.AttendeeId == userId && a.Gig.DateTime > DateTime.Now)
@@ -30,7 +30,7 @@ namespace GigHub.Repositories
         public ILookup<int, Attendance> GetFutureAttendancesLookup(string userId)
         {
             //Here as an example so I dont forget ToLookup()
-            return GetFutureAttendances(userId).ToLookup(a => a.GigId);
+            return GetUpcomingAttendances(userId).ToLookup(a => a.GigId);
         }
 
     }

@@ -44,7 +44,7 @@ namespace GigHub.Controllers
             {
                 var userId = User.Identity.GetUserId();
                 userAttendances = _attendanceRepository
-                    .GetFutureAttendances(userId)
+                    .GetUpcomingAttendances(userId)
                     .Select(g => g.GigId);
             }
 
@@ -59,7 +59,7 @@ namespace GigHub.Controllers
 
             var viewModel = new GigsViewModel
             {
-                UpcomingGigs = upcomingGigs,
+                UpcomingGigs = upcomingGigs.ToList(),
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Upcoming Gigs",
                 SearchTerm = query,

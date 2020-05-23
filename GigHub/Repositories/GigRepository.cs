@@ -33,6 +33,14 @@ namespace GigHub.Repositories
                 .OrderBy(c => c.DateTime)
                 .ToList();
         }
+        
+        public IEnumerable<int> GetGigsIdsForGigsUserIsAttending(string userId)
+        {
+            return _context.Attendances
+                .Where(c => c.AttendeeId == userId && c.Gig.DateTime > DateTime.Now)
+                .Select(c => c.Gig.Id)
+                .ToList();
+        }
 
         public Gig GetGig(int id)
         {
@@ -50,10 +58,12 @@ namespace GigHub.Repositories
                .Where(g => g.DateTime > DateTime.Now);
         }
 
-        public IEnumerable<Gig> GetMyGigsWithGenre(string artistId)
+        public IEnumerable<Gig> GetGigs(string artistId)
         {
+            DateTime cutoff = DateTime.UtcNow.ToLocalTime().AddDays(-3);
             return _context.Gigs
-               .Where(g => g.ArtistId == artistId && g.DateTime > DateTime.Now && !g.IsCancelled)
+               .Where(g => g.ArtistId == artistId && g.DateTime > cutoff && !g.IsCancelled)
+               .Include(g => g.Artist)
                .Include(g => g.Genre);
         }
 
