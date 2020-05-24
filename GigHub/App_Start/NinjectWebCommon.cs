@@ -3,9 +3,11 @@
 
 namespace GigHub.App_Start
 {
+    using GigHub.Controllers;
+    using GigHub.Persistence;
+    using GigHub.Repositories;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
-    using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
     using System;
     using System.Web;
@@ -60,13 +62,11 @@ namespace GigHub.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(a =>
-            {
-                a.FromThisAssembly()
-                    .SelectAllClasses()
-                    .BindDefaultInterface();
-            });
-
+            kernel.Bind<IGigRepository>().To<GigRepository>();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            kernel.Bind<IAttendanceRepository>().To<AttendanceRepository>();
+            kernel.Bind<IFollowerRepository>().To<FollowerRepository>();
+            kernel.Bind<IGenreRepository>().To<GenreRepository>();
         }
     }
 }
