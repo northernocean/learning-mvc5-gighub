@@ -1,5 +1,6 @@
 ﻿using GigHub.Models;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace GigHub.Controllers
@@ -18,6 +19,11 @@ namespace GigHub.Controllers
         {
             return _context.Followers
                 .Any(f => f.UserId == userId && f.ArtistId == artistId);
+        }
+
+        public IEnumerable<Follower> GetFollowersForArtist(string artistId)
+        {
+            return _context.Followers.Include(c => c.User).Where(a => a.ArtistId == artistId);
         }
 
         public IEnumerable<Gig> GetGigsForArtistsIAmFollowing(string userId)

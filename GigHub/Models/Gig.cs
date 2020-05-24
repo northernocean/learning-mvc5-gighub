@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GigHub.Controllers;
+using GigHub.Persistence;
+using GigHub.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
 using System.Linq;
 
 namespace GigHub.Models
@@ -39,13 +41,12 @@ namespace GigHub.Models
 
         public virtual ICollection<Attendance> Attendances { get; }
 
-        public void Create(ApplicationDbContext context)
+        public void Create(IUnitOfWork unitOfWork)
         {
-            context.Gigs.Add(this);
+            unitOfWork.Gigs.Add(this);
             Notification notification = Notification.NewGigCreatedNotification(this);
-            foreach (var follower in context.Followers
-                        .Include(u => u.User)
-                        .Where(a => a.ArtistId == ArtistId)
+            foreach (var follower in unitOfWork.Followers
+                        .GetFollowersForArtist(ArtistId)
                         .ToList()
                     )
                 follower.User.Notify(notification);

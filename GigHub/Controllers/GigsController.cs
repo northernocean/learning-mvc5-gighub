@@ -153,8 +153,7 @@ namespace GigHub.Controllers
                 Genre = _unitOfWork.Genres.GetGenre(viewModel.GenreId),
                 Venue = viewModel.Venue
             };
-            gig.Create(_context);
-            //_unitOfWork.Gigs.Add(gig);
+            gig.Create(_unitOfWork);
             _unitOfWork.Complete();
 
             return RedirectToAction("Mine", "Gigs");
