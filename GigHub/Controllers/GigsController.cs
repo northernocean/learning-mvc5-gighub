@@ -1,6 +1,5 @@
 ﻿using GigHub.Models;
 using GigHub.Persistence;
-using GigHub.Repositories;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Linq;
@@ -11,14 +10,13 @@ namespace GigHub.Controllers
 
     public class GigsController : Controller
     {
-
         private readonly ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GigsController()
+        public GigsController(IUnitOfWork unitOfWork)
         {
             _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
@@ -85,7 +83,7 @@ namespace GigHub.Controllers
                 Time = gig.DateTime.ToString("HH:mm"),
                 Venue = gig.Venue,
                 GenreId = gig.GenreId,
-                Genres = _context.Genres.ToList(),
+                Genres = _unitOfWork.Genres.GetGenres().ToList(),
                 Heading = "Edit"
             };
             return View("GigForm", viewModel);
