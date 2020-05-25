@@ -1,6 +1,4 @@
-﻿using GigHub.Controllers;
-using GigHub.Persistence;
-using GigHub.Repositories;
+﻿using GigHub.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
