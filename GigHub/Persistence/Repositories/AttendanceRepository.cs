@@ -21,6 +21,17 @@ namespace GigHub.Persistence.Repositories
                     .Any(a => a.AttendeeId == userId && a.GigId == gigId);
         }
 
+        public Attendance GetAttendance(int gigId, string userId)
+        {
+            return _context.Attendances
+                    .SingleOrDefault(a => a.AttendeeId == userId && a.GigId == gigId);
+        }
+
+        public void RemoveAttendance(Attendance attendance)
+        {
+            _context.Attendances.Remove(attendance);
+        }
+
         public IEnumerable<Attendance> GetUpcomingAttendances(string userId)
         {
             return _context.Attendances
@@ -32,6 +43,11 @@ namespace GigHub.Persistence.Repositories
         {
             //Here as an example so I dont forget ToLookup()
             return GetUpcomingAttendances(userId).ToLookup(a => a.GigId);
+        }
+
+        void IAttendanceRepository.AddAttendance(Attendance attendance)
+        {
+            _context.Attendances.Add(attendance);
         }
 
     }

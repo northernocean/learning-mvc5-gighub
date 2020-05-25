@@ -1,5 +1,6 @@
 ﻿using GigHub.Core.Persistence;
 using GigHub.Core.ViewModels;
+using GigHub.Persistence;
 using GigHub.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
@@ -13,23 +14,16 @@ namespace GigHub.Controllers
     public class HomeController : Controller
     {
 
-        private ApplicationDbContext _context;
-        private readonly AttendanceRepository _attendanceRepository;
-        private readonly GigRepository _gigRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _attendanceRepository = new AttendanceRepository(_context);
-            _gigRepository = new GigRepository(_context);
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index(string query = null)
         {
-            var upcomingGigs = _context.Gigs
-                .Include(g => g.Artist)
-                .Include(g => g.Genre)
-                .Where(g => g.DateTime > DateTime.Now);
+            var upcomingGigs = _unitOfWork.Gigs.GetUpcomingGigs();
 
             if (!String.IsNullOrWhiteSpace(query))
             {
@@ -43,7 +37,7 @@ namespace GigHub.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                userAttendances = _attendanceRepository
+                userAttendances = _unitOfWork.Attendances 
                     .GetUpcomingAttendances(userId)
                     .Select(g => g.GigId);
             }
@@ -52,9 +46,7 @@ namespace GigHub.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                userFollowings = _context.Followers
-                    .Where(f => f.UserId == userId)
-                    .Select(a => a.ArtistId);
+                userFollowings = _unitOfWork.Followers.GetArtistsUserIsFollowing(userId);
             }
 
             var viewModel = new GigsViewModel

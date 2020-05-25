@@ -1,5 +1,4 @@
 ﻿using GigHub.Core.Models;
-using GigHub.Core.Persistence;
 using GigHub.Core.ViewModels;
 using GigHub.Persistence;
 using Microsoft.AspNet.Identity;
@@ -11,12 +10,10 @@ namespace GigHub.Controllers
 
     public class GigsController : Controller
     {
-        private readonly ApplicationDbContext _context;
         private readonly IUnitOfWork _unitOfWork;
 
         public GigsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
             _unitOfWork = unitOfWork;
         }
 

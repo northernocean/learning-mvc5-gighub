@@ -9,6 +9,7 @@ namespace GigHub.Persistence
         IFollowerRepository Followers { get; }
         IGenreRepository Genres { get; }
         IGigRepository Gigs { get; }
+        IUserNotificationRepository UserNotifications { get; }
 
         void Complete();
     }

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using GigHub.Core.Models;
+using GigHub.Core.Persistence;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using GigHub.Core.Models;
-using GigHub.Core.Persistence;
 
 namespace GigHub.Controllers
 {
@@ -15,6 +15,21 @@ namespace GigHub.Controllers
             _context = context;
         }
 
+        public void Add(Follower follower)
+        {
+            _context.Followers.Add(follower);
+        }
+
+        public void Remove(Follower follower)
+        {
+            _context.Followers.Remove(follower);
+        }
+
+        public Follower GetFollower(string artistId, string userId)
+        {
+            return _context.Followers
+                .SingleOrDefault(f => f.ArtistId == artistId && f.UserId == userId);
+        }
 
         public bool IsFollowing(string artistId, string userId)
         {
@@ -25,6 +40,13 @@ namespace GigHub.Controllers
         public IEnumerable<Follower> GetFollowersForArtist(string artistId)
         {
             return _context.Followers.Include(c => c.User).Where(a => a.ArtistId == artistId);
+        }
+
+        public IEnumerable<string> GetArtistsUserIsFollowing(string userId)
+        {
+            return _context.Followers
+                .Where(f => f.UserId == userId)
+                .Select(a => a.ArtistId);
         }
 
         public IEnumerable<Gig> GetGigsForArtistsIAmFollowing(string userId)

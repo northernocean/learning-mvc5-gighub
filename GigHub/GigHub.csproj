@@ -217,6 +217,8 @@
     <Compile Include="Persistence\Repositories\FollowerRepository.cs" />
     <Compile Include="Core\Dtos\ArtistDto.cs" />
     <Compile Include="Core\Dtos\GenreDto.cs" />
+    <Compile Include="Persistence\Repositories\IUserNotificationRepository.cs" />
+    <Compile Include="Persistence\Repositories\UserNotificationRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Persistence\Repositories\AttendanceRepository.cs" />
     <Compile Include="Persistence\Repositories\GenreRepository.cs" />
@@ -232,12 +234,12 @@
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyTestsController.cs" />
-    <Compile Include="Migrations\202005050014508_Notification.cs" />
-    <Compile Include="Migrations\202005050014508_Notification.designer.cs">
+    <Compile Include="Persistence\Migrations\202005050014508_Notification.cs" />
+    <Compile Include="Persistence\Migrations\202005050014508_Notification.designer.cs">
       <DependentUpon>202005050014508_Notification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005101954474_SeedTestData.cs" />
-    <Compile Include="Migrations\202005101954474_SeedTestData.designer.cs">
+    <Compile Include="Persistence\Migrations\202005101954474_SeedTestData.cs" />
+    <Compile Include="Persistence\Migrations\202005101954474_SeedTestData.designer.cs">
       <DependentUpon>202005101954474_SeedTestData.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Models\Notification.cs" />
@@ -248,35 +250,35 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004181935050_InitialModel.cs" />
-    <Compile Include="Migrations\202004181935050_InitialModel.Designer.cs">
+    <Compile Include="Persistence\Migrations\202004181935050_InitialModel.cs" />
+    <Compile Include="Persistence\Migrations\202004181935050_InitialModel.Designer.cs">
       <DependentUpon>202004181935050_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004191553534_GigTable.cs" />
-    <Compile Include="Migrations\202004191553534_GigTable.designer.cs">
+    <Compile Include="Persistence\Migrations\202004191553534_GigTable.cs" />
+    <Compile Include="Persistence\Migrations\202004191553534_GigTable.designer.cs">
       <DependentUpon>202004191553534_GigTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004191554433_SeedGenres.cs" />
-    <Compile Include="Migrations\202004191554433_SeedGenres.designer.cs">
+    <Compile Include="Persistence\Migrations\202004191554433_SeedGenres.cs" />
+    <Compile Include="Persistence\Migrations\202004191554433_SeedGenres.designer.cs">
       <DependentUpon>202004191554433_SeedGenres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004231207001_AddNameToApplicationUser.cs" />
-    <Compile Include="Migrations\202004231207001_AddNameToApplicationUser.designer.cs">
+    <Compile Include="Persistence\Migrations\202004231207001_AddNameToApplicationUser.cs" />
+    <Compile Include="Persistence\Migrations\202004231207001_AddNameToApplicationUser.designer.cs">
       <DependentUpon>202004231207001_AddNameToApplicationUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004231211588_SeedTestUsers.cs" />
-    <Compile Include="Migrations\202004231211588_SeedTestUsers.designer.cs">
+    <Compile Include="Persistence\Migrations\202004231211588_SeedTestUsers.cs" />
+    <Compile Include="Persistence\Migrations\202004231211588_SeedTestUsers.designer.cs">
       <DependentUpon>202004231211588_SeedTestUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004250108252_AddAttendances.cs" />
-    <Compile Include="Migrations\202004250108252_AddAttendances.designer.cs">
+    <Compile Include="Persistence\Migrations\202004250108252_AddAttendances.cs" />
+    <Compile Include="Persistence\Migrations\202004250108252_AddAttendances.designer.cs">
       <DependentUpon>202004250108252_AddAttendances.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004261312383_AddFollowers.cs" />
-    <Compile Include="Migrations\202004261312383_AddFollowers.designer.cs">
+    <Compile Include="Persistence\Migrations\202004261312383_AddFollowers.cs" />
+    <Compile Include="Persistence\Migrations\202004261312383_AddFollowers.designer.cs">
       <DependentUpon>202004261312383_AddFollowers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\Models\Attendance.cs" />
     <Compile Include="Core\Models\Follower.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
@@ -497,31 +499,31 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004181935050_InitialModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004181935050_InitialModel.resx">
       <DependentUpon>202004181935050_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004191553534_GigTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004191553534_GigTable.resx">
       <DependentUpon>202004191553534_GigTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004191554433_SeedGenres.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004191554433_SeedGenres.resx">
       <DependentUpon>202004191554433_SeedGenres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004231207001_AddNameToApplicationUser.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004231207001_AddNameToApplicationUser.resx">
       <DependentUpon>202004231207001_AddNameToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004231211588_SeedTestUsers.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004231211588_SeedTestUsers.resx">
       <DependentUpon>202004231211588_SeedTestUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004250108252_AddAttendances.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004250108252_AddAttendances.resx">
       <DependentUpon>202004250108252_AddAttendances.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004261312383_AddFollowers.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202004261312383_AddFollowers.resx">
       <DependentUpon>202004261312383_AddFollowers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005050014508_Notification.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202005050014508_Notification.resx">
       <DependentUpon>202005050014508_Notification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005101954474_SeedTestData.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202005101954474_SeedTestData.resx">
       <DependentUpon>202005101954474_SeedTestData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
