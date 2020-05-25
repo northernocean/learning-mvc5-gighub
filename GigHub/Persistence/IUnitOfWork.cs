@@ -1,5 +1,5 @@
 ﻿using GigHub.Controllers;
-using GigHub.Repositories;
+using GigHub.Persistence.Repositories;
 
 namespace GigHub.Persistence
 {

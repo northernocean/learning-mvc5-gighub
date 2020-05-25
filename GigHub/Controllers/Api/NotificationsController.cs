@@ -1,5 +1,5 @@
-﻿using GigHub.Models;
-using GigHub.Models.Dtos;
+﻿using GigHub.Core.Dtos;
+using GigHub.Core.Persistence;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Data.Entity;
