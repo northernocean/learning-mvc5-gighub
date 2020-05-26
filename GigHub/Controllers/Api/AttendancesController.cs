@@ -3,7 +3,7 @@ using GigHub.Persistence;
 using Microsoft.AspNet.Identity;
 using System.Web.Http;
 
-namespace GigHub.Controllers
+namespace GigHub.Controllers.Api
 {
     [Authorize]
     public class AttendancesController : ApiController
@@ -23,20 +23,16 @@ namespace GigHub.Controllers
             var userId = User.Identity.GetUserId();
 
             if (_unitOfWork.Attendances.IsAttending(id, userId))
-            {
                 return BadRequest();
-            }
-            else
+            
+            var attendance = new Attendance
             {
-                var attendance = new Attendance
-                {
-                    GigId = id,
-                    AttendeeId = User.Identity.GetUserId()
-                };
+                GigId = id,
+                AttendeeId = User.Identity.GetUserId()
+            };
 
-                _unitOfWork.Attendances.AddAttendance(attendance);
-                _unitOfWork.Complete();
-            }
+            _unitOfWork.Attendances.AddAttendance(attendance);
+            _unitOfWork.Complete();
 
             return Ok();
 
