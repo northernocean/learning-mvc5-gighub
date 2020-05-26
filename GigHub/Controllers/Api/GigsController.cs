@@ -1,7 +1,5 @@
-﻿using GigHub.Core.Persistence;
+﻿using GigHub.Persistence;
 using Microsoft.AspNet.Identity;
-using System.Data.Entity;
-using System.Linq;
 using System.Web.Http;
 
 namespace GigHub.Controllers.Api
@@ -10,29 +8,30 @@ namespace GigHub.Controllers.Api
     public class GigsController : ApiController
     {
 
-        private ApplicationDbContext _context;
-
-        public GigsController()
+        private readonly IUnitOfWork _unitOfWork;
+        public GigsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
         }
 
         [HttpDelete]
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
-            var gig = _context.Gigs
-                // .Include((g => g.Attendances.Include(a => a.Attendee)) <== doesn't work but conceptually it is what we want here
-                // .Include((g => g.Attendances.Select(a => a.Attendee)) <== okay
-                .Include(g => g.Attendances.Select(a => a.Attendee))
-                .Single(g => g.Id == id && g.ArtistId == userId);
+            var gig = _unitOfWork.Gigs.GetGig(id);
+
+            if (gig is null)
+                return NotFound();
+
+            if (gig.ArtistId != userId)
+                return BadRequest();
 
             if (gig.IsCancelled)
                 return NotFound();
 
             gig.Cancel();
 
-            _context.SaveChanges();
+            _unitOfWork.Complete();
 
             return Ok();
         }

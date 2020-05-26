@@ -20,6 +20,8 @@ namespace GigHub.Persistence.Repositories
         public Gig GetGigWithAttendees(int gigId)
         {
             return _context.Gigs
+               // .Include((g => g.Attendances.Include(a => a.Attendee)) <== doesn't work but conceptually it is what we want here
+               // .Include((g => g.Attendances.Select(a => a.Attendee)) <== okay
                .Include(g => g.Attendances.Select(a => a.Attendee))
                .SingleOrDefault(g => g.Id == gigId);
         }
