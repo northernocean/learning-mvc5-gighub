@@ -1,4 +1,4 @@
-﻿using GigHub.Persistence;
+﻿using GigHub.Core;
 using Microsoft.AspNet.Identity;
 using System.Web.Http;
 

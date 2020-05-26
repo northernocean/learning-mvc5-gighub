@@ -1,11 +1,8 @@
-﻿using GigHub.Core.Persistence;
+﻿using GigHub.Core;
 using GigHub.Core.ViewModels;
-using GigHub.Persistence;
-using GigHub.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -37,7 +34,7 @@ namespace GigHub.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                userAttendances = _unitOfWork.Attendances 
+                userAttendances = _unitOfWork.Attendances
                     .GetUpcomingAttendances(userId)
                     .Select(g => g.GigId);
             }

@@ -1,10 +1,10 @@
 ﻿using GigHub.Core.Models;
-using GigHub.Core.Persistence;
+using GigHub.Core.Repositories;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace GigHub.Controllers
+namespace GigHub.Persistence.Repositories
 {
     public class FollowerRepository : IFollowerRepository
     {

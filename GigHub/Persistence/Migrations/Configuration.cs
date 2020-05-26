@@ -1,4 +1,4 @@
-using GigHub.Core.Persistence;
+using GigHub.Persistence;
 namespace GigHub.Migrations
 {
     using System.Data.Entity.Migrations;

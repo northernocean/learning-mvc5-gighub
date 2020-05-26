@@ -1,5 +1,5 @@
-﻿using GigHub.Core.Models;
-using GigHub.Persistence;
+﻿using GigHub.Core;
+using GigHub.Core.Models;
 using Microsoft.AspNet.Identity;
 using System.Web.Http;
 
@@ -24,7 +24,7 @@ namespace GigHub.Controllers.Api
 
             if (_unitOfWork.Attendances.IsAttending(id, userId))
                 return BadRequest();
-            
+
             var attendance = new Attendance
             {
                 GigId = id,

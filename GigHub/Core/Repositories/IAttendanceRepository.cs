@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GigHub.Persistence.Repositories
+namespace GigHub.Core.Repositories
 {
     public interface IAttendanceRepository
     {
