@@ -23,11 +23,11 @@ namespace GigHub.Controllers.Api
             if (gig is null)
                 return NotFound();
 
-            if (gig.ArtistId != userId)
-                return BadRequest();
-
             if (gig.IsCancelled)
                 return NotFound();
+
+            if (gig.ArtistId != userId)
+                return Unauthorized();
 
             gig.Cancel();
 

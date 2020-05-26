@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using GigHub.Controllers.Api;
+using GigHub.Core.Models;
 using GigHub.Persistence;
 using GigHub.Persistence.Repositories;
 using GigHub.Tests.Extensions;
@@ -13,17 +14,20 @@ namespace GigHub.Tests.Controllers.Api
     public class GigsControllerTests
     {
 
-        private GigsController _controller;
+        private readonly GigsController _controller;
+        private readonly Mock<IGigRepository> _mockRepository;
+        private readonly string _userId;
 
         public GigsControllerTests()
         {
-            var mockRepository = new Mock<IGigRepository>();
+            _mockRepository = new Mock<IGigRepository>();
 
             var mockUoW = new Mock<IUnitOfWork>();
-            mockUoW.SetupGet(u => u.Gigs).Returns(mockRepository.Object);
+            mockUoW.SetupGet(u => u.Gigs).Returns(_mockRepository.Object);
 
             _controller = new GigsController(mockUoW.Object);
-            _controller.MockCurrentUser("1", "user@example.com");
+            _userId = "1";
+            _controller.MockCurrentUser(_userId, "user@example.com"); ;
         }
 
         [TestMethod]
@@ -33,5 +37,40 @@ namespace GigHub.Tests.Controllers.Api
 
             result.Should().BeOfType<NotFoundResult>();
         }
+
+        [TestMethod]
+        public void Cancel_GigIsCancelled_ShouldReturnNotFound()
+        {
+            var gig = new Gig();
+            gig.Cancel();
+            _mockRepository.Setup(r => r.GetGig(1)).Returns(gig);
+
+            var result = _controller.Cancel(1);
+
+            result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [TestMethod]
+        public void Cancel_UserCancellingAnotherUsersGig_ShouldReturnUnauthorized()
+        {
+            var gig = new Gig() { ArtistId = _userId + "_" };
+            _mockRepository.Setup(r => r.GetGig(1)).Returns(gig);
+
+            var result = _controller.Cancel(1);
+
+            result.Should().BeOfType<UnauthorizedResult>();
+        }
+
+        [TestMethod]
+        public void Cancel_ValidRequest_ShouldReturnOk()
+        {
+            var gig = new Gig() { ArtistId = _userId };
+            _mockRepository.Setup(r => r.GetGig(1)).Returns(gig);
+
+            var result = _controller.Cancel(1);
+
+            result.Should().BeOfType<OkResult>();
+        }
+
     }
 }
