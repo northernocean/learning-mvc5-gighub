@@ -33,7 +33,7 @@ namespace GigHub.Core.Models
             return userIdentity;
         }
 
-        internal void Notify(Notification notification)
+        public void Notify(Notification notification)
         {
             UserNotifications.Add(new UserNotification(this, notification));
         }

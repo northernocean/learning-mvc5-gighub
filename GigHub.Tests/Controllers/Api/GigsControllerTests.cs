@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using GigHub.Controllers.Api;
+using GigHub.Core;
 using GigHub.Core.Models;
-using GigHub.Persistence;
-using GigHub.Persistence.Repositories;
+using GigHub.Core.Repositories;
 using GigHub.Tests.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
