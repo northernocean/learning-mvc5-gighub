@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace GigHub.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
 
         // ApplicationDBContext DBSets

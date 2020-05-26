@@ -214,6 +214,7 @@
     <Compile Include="Controllers\Api\FollowersController.cs" />
     <Compile Include="Controllers\Api\GigsController.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Persistence\IApplicationDbContext.cs" />
     <Compile Include="Persistence\Repositories\FollowerRepository.cs" />
     <Compile Include="Core\Dtos\ArtistDto.cs" />
     <Compile Include="Core\Dtos\GenreDto.cs" />

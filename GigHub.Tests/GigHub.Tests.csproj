@@ -81,6 +81,9 @@
     <Compile Include="Core\Models\GigTests.cs" />
     <Compile Include="Core\Models\NotificationTests.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
+    <Compile Include="Persistence\Repositories\GigRepositoryTests.cs" />
+    <Compile Include="Extensions\MockDbSetExtensions.cs" />
+    <Compile Include="Persistence\Repositories\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
