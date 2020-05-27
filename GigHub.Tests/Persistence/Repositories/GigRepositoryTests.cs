@@ -8,12 +8,12 @@ using Moq;
 using System;
 using System.Data.Entity;
 
-namespace GigHub.Tests.Persistence.Repositor
+namespace GigHub.Tests.Persistence.Repositories
 {
-
     [TestClass]
-    class GigRepositoryTests
+    public class GigRepositoryTests
     {
+
         private GigRepository _repository;
         private Mock<DbSet<Gig>> _gigs;
         private Mock<IApplicationDbContext> _context;
@@ -43,7 +43,55 @@ namespace GigHub.Tests.Persistence.Repositor
             var result = _repository.GetGigs(_artistId);
 
             result.Should().BeEmpty();
-
         }
+        
+        [TestMethod]
+        public void GetGigs_GigsIsCancelled_ShouldNotBeReturned()
+        {
+            var gig = new Gig()
+            {
+                DateTime = DateTime.UtcNow.ToLocalTime().AddDays(7),
+                ArtistId = _artistId
+            };
+            gig.Cancel();
+            _gigs.SetSource(new[] { gig });
+
+            var result = _repository.GetGigs(_artistId);
+
+            result.Should().BeEmpty();
+        }
+        
+        [TestMethod]
+        public void GetGigs_GigsIsForADifferentArtist_ShouldNotBeReturned()
+        {
+            var gig = new Gig()
+            {
+                DateTime = DateTime.UtcNow.ToLocalTime().AddDays(7),
+                ArtistId = _artistId
+            };
+            _gigs.SetSource(new[] { gig });
+
+            var result = _repository.GetGigs(_artistId + "_");
+
+            result.Should().BeEmpty();
+        }
+        
+        [TestMethod]
+        public void GetGigs_GigIsForArtistAndIsInTheFuture_ShouldBeReturned()
+        {
+            var gig = new Gig()
+            {
+                DateTime = DateTime.UtcNow.ToLocalTime().AddDays(7),
+                ArtistId = _artistId
+            };
+            _gigs.SetSource(new[] { gig });
+
+            var result = _repository.GetGigs(_artistId);
+
+            result.Should().Contain(gig);
+        }
+
+
+
     }
 }
