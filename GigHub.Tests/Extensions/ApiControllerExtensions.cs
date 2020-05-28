@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using GigHub.Core.Models;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Web.Http;
 
@@ -17,4 +18,5 @@ namespace GigHub.Tests.Extensions
             controller.User = principal;
         }
     }
+    
 }

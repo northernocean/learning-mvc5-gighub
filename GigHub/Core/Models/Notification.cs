@@ -10,10 +10,10 @@ namespace GigHub.Core.Models
 
         protected Notification() { }
 
-        private Notification(Gig gig, NotificationType notificationType)
+        public Notification(Gig gig, NotificationType notificationType)
             : this(gig, notificationType, null, null) { }
 
-        private Notification(Gig gig, NotificationType notificationType, DateTime? originalDateTime, string originalVenue)
+        public Notification(Gig gig, NotificationType notificationType, DateTime? originalDateTime, string originalVenue)
         {
             Gig = gig ?? throw new ArgumentNullException("gig");
             Type = notificationType;

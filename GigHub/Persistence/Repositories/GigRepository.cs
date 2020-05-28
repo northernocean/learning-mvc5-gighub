@@ -35,6 +35,7 @@ namespace GigHub.Persistence.Repositories
                .SingleOrDefault(g => g.Id == gigId);
         }
 
+        //Todo -- Unit Test
         public IEnumerable<Gig> GetGigsUserIsAttending(string userId)
         {
             return _context.Attendances

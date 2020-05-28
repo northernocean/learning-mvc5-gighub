@@ -44,7 +44,7 @@ namespace GigHub.Tests.Persistence.Repositories
 
             result.Should().BeEmpty();
         }
-        
+
         [TestMethod]
         public void GetGigs_GigsIsCancelled_ShouldNotBeReturned()
         {
@@ -60,7 +60,7 @@ namespace GigHub.Tests.Persistence.Repositories
 
             result.Should().BeEmpty();
         }
-        
+
         [TestMethod]
         public void GetGigs_GigsIsForADifferentArtist_ShouldNotBeReturned()
         {
@@ -75,7 +75,7 @@ namespace GigHub.Tests.Persistence.Repositories
 
             result.Should().BeEmpty();
         }
-        
+
         [TestMethod]
         public void GetGigs_GigIsForArtistAndIsInTheFuture_ShouldBeReturned()
         {
@@ -90,8 +90,6 @@ namespace GigHub.Tests.Persistence.Repositories
 
             result.Should().Contain(gig);
         }
-
-
 
     }
 }
